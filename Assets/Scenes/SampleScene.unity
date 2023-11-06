@@ -160,6 +160,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+  debugColorOutput: 0
 --- !u!20 &154835311
 Camera:
   m_ObjectHideFlags: 0
@@ -221,6 +222,52 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &461635288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 461635290}
+  - component: {fileID: 461635289}
+  m_Layer: 0
+  m_Name: debugManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &461635289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461635288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba25ba322b7e6234ea25fe92edc87b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cavernStereoRenderer: {fileID: 963194229}
+  cavernOutputCamera: {fileID: 154835310}
+--- !u!4 &461635290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461635288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.829024, y: -2.7582898, z: -19.18628}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -635,14 +682,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8564654899ade41a23369d361d434b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderStereo: 1
   stereoSeparation: 0.064
+  renderStereo: 1
   cubemapMask: 31
   perEyeWidth: 1024
   perEyeHeight: 1024
   outputWidth: 3840
   outputHeight: 720
   outputCamera: {fileID: 154835310}
+  cubemapLeftEye: {fileID: 0}
+  cubemapRightEye: {fileID: 0}
+  equirect: {fileID: 0}
+  debugSwapLeftRight: 0
+  debugNoStereo: 0
 --- !u!1 &1680710247
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,3 +810,4 @@ SceneRoots:
   - {fileID: 621589939}
   - {fileID: 855856462}
   - {fileID: 1680710251}
+  - {fileID: 461635290}

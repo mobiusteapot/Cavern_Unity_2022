@@ -12,6 +12,8 @@ namespace ETC.CaveCavern {
         private Camera cam;
         private bool hasRT = false;
 
+        // Debug variables
+        public bool debugColorOutput = false;
         private void Reset() {
             cam = this.GetComponent<Camera>();
             if (TryGetComponent(out AudioListener audioListener)) {
@@ -26,6 +28,7 @@ namespace ETC.CaveCavern {
         private void Update() {
             if(cropRenderOutputMaterial != null) {
                 // Convert rect to vector4
+                UpdateDebugColor();
                 cropRenderOutputMaterial.SetVector("_CropRegion", cropRegion.GetRectAsVector4());
             }
         }
@@ -44,6 +47,19 @@ namespace ETC.CaveCavern {
                 cropRenderOutputMaterial.SetTexture("_MainTex", outputRT);
                 hasRT = true;
             }
+        }
+        
+        private void UpdateDebugColor() {
+            // Todo: Red/blue tint
+            if (debugColorOutput) {
+                cropRenderOutputMaterial.EnableKeyword("DEBUG_COLOR");
+            } else {
+                cropRenderOutputMaterial.DisableKeyword("DEBUG_COLOR");
+            }
+        }
+        public void SetDebugColor(bool debugColorOutput) {
+            this.debugColorOutput = debugColorOutput;
+            UpdateDebugColor();
         }
     }
 }

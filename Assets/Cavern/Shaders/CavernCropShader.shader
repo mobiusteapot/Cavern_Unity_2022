@@ -3,6 +3,7 @@ Shader "Hidden/CropScreenOutput"
     Properties
     {
         [MainTexture] _MainTex("Texture", 2D) = "white" {}
+		[MainColor] _DebugTint("Color", Color) = (1,0,0,1)
         _CropRegion("CropRegion", Vector) = (1,1,1,1)
     }
         SubShader
@@ -16,6 +17,7 @@ Shader "Hidden/CropScreenOutput"
                 #pragma fragment frag
     
                 #pragma multi_compile_fog
+				#pragma multi_compile_local _ DEBUG_COLOR
 
                 #include "UnityCG.cginc"
 
@@ -34,6 +36,7 @@ Shader "Hidden/CropScreenOutput"
 
                 sampler2D _MainTex;
                 float4 _MainTex_ST;
+				float4 _DebugTint;
 				float4 _CropRegion;
 
                 v2f vert(appdata v)
@@ -49,6 +52,10 @@ Shader "Hidden/CropScreenOutput"
                 {
                     i.uv = i.uv * _CropRegion.zw + _CropRegion.xy;
                     fixed4 col = tex2D(_MainTex, i.uv);
+                if (DEBUG_COLOR)
+                {
+                    col *= _DebugTint;
+                }
                     UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
                 }

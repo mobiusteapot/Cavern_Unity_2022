@@ -23,9 +23,10 @@ namespace ETC.CaveCavern {
         [SerializeField, HideInInspector] private RenderTexture cubemapRightEye;
         [SerializeField, HideInInspector] private RenderTexture equirect;
         private Camera cubemapCam;
-        // todo: add hotkey to swap
-        // Re-add debug output
-        // Hotkey to set stereo to 0
+
+        // Debug variables
+        public bool debugSwapLeftRight = false;
+        public bool debugNoStereo = false;
 
         void Awake() {
             cubemapLeftEye = new RenderTexture(perEyeWidth, perEyeHeight, 24, RenderTextureFormat.ARGB32);
@@ -59,9 +60,9 @@ namespace ETC.CaveCavern {
             }
 
             if (renderStereo) {
-                cubemapCam.stereoSeparation = stereoSeparation;
-                cubemapCam.RenderToCubemap(cubemapLeftEye, cubemapMask, Camera.MonoOrStereoscopicEye.Left);
-                cubemapCam.RenderToCubemap(cubemapRightEye, cubemapMask, Camera.MonoOrStereoscopicEye.Right);
+                cubemapCam.stereoSeparation = debugNoStereo ? 0 : stereoSeparation;
+                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapRightEye : cubemapLeftEye, cubemapMask, Camera.MonoOrStereoscopicEye.Left);
+                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapLeftEye : cubemapRightEye, cubemapMask, Camera.MonoOrStereoscopicEye.Right);
             } else {
                 cubemapCam.RenderToCubemap(cubemapLeftEye, cubemapMask, Camera.MonoOrStereoscopicEye.Mono);
             }
@@ -75,7 +76,6 @@ namespace ETC.CaveCavern {
             } else {
                 cubemapLeftEye.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Mono);
             }
-
         }
     }
 #if UNITY_EDITOR
