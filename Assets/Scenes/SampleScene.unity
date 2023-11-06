@@ -153,6 +153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f4132d842e3eb49b39e7427e6ab100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cropRenderOutputShader: {fileID: 4800000, guid: 0f0681fe1b93e8949909d335a4e5c200, type: 3}
+  cropRegion:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!20 &154835311
 Camera:
   m_ObjectHideFlags: 0
