@@ -5,8 +5,8 @@ using UnityEngine;
 namespace ETC.CaveCavern {
     [RequireComponent(typeof(Camera))]
     public class CavernOutputCamera : MonoBehaviour {
+        [SerializeField] private CavernOutputSettings settings;
         [SerializeField] private Shader cropRenderOutputShader;
-        [SerializeField] private Rect cropRegion;
         private Material cropRenderOutputMaterial;
         private RenderTexture outputRT;
         private Camera cam;
@@ -25,11 +25,16 @@ namespace ETC.CaveCavern {
         }
 #if UNITY_EDITOR
         // Only live-update crop region in-editor. On build, this should never change live.
+        // (Stripping this improves performance)
         private void Update() {
-            if(cropRenderOutputMaterial != null) {
-                // Convert rect to vector4
+            if (settings == null)
+            {
+                Debug.LogWarning("Cavern settings asset is missing. Please assign an output settings asset");
+                return;
+            }
+            if (cropRenderOutputMaterial != null) {
                 UpdateDebugColor();
-                cropRenderOutputMaterial.SetVector("_CropRegion", cropRegion.GetRectAsVector4());
+                cropRenderOutputMaterial.SetVector("_CropRegion", settings.cropRect.GetRectAsVector4());
             }
         }
 #endif
@@ -43,7 +48,7 @@ namespace ETC.CaveCavern {
         public void SetOutputRT(RenderTexture newRT) {
             if (newRT != null) {
                 outputRT = newRT;
-                cropRenderOutputMaterial.SetVector("_CropRegion", cropRegion.GetRectAsVector4());
+                cropRenderOutputMaterial.SetVector("_CropRegion", settings.cropRect.GetRectAsVector4());
                 cropRenderOutputMaterial.SetTexture("_MainTex", outputRT);
                 hasRT = true;
             }
