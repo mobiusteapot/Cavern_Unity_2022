@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: b6f4132d842e3eb49b39e7427e6ab100
+guid: d9f1516fb1b2915489611ea79ef5e642
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - cropRenderOutputShader: {fileID: 4800000, guid: 0f0681fe1b93e8949909d335a4e5c200, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

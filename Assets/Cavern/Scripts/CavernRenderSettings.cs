@@ -4,6 +4,7 @@ namespace ETC.CaveCavern
     [CreateAssetMenu(fileName = "CavernRenderSettings", menuName = "Cavern/CavernRenderSettings")]
     public class CavernRenderSettings : ScriptableObject
     {
+
         [Header("IPD in meters")]
         public float stereoSeparation = 0.064f;
         [Header("Render Settings")]

@@ -11,7 +11,7 @@ namespace ETC.CaveCavern {
     {
 #if UNITY_EDITOR
         [SerializeField] private CavernStereoRenderer cavernStereoRenderer;
-        [SerializeField] private CavernOutputCamera cavernOutputCamera;
+        [SerializeField] private CavernSingleCameraOutput cavernOutputCamera;
         private bool isMissingReference;
         private void Awake() {
             if (cavernStereoRenderer == null) {

@@ -2,13 +2,14 @@ using UnityEngine;
 
 namespace ETC.CaveCavern {
     [RequireComponent(typeof(Camera))]
-    public class CavernOutputCamera : MonoBehaviour {
-        [SerializeField] private CavernOutputSettings settings;
+    public class CavernSingleCameraOutput : MonoBehaviour {
+
         [SerializeField] private Shader cropRenderOutputShader;
         private Material cropRenderOutputMaterial;
         private RenderTexture outputRT;
         private Camera cam;
         private bool hasRT = false;
+        public CavernOutputSettings settings { private get; set; }
 
         // Debug variables
         public bool debugColorOutput = false;
@@ -25,11 +26,6 @@ namespace ETC.CaveCavern {
         // Only live-update crop region in-editor. On build, this should never change live.
         // (Stripping this improves performance)
         private void Update() {
-            if (settings == null)
-            {
-                Debug.LogWarning("Cavern settings asset is missing. Please assign an output settings asset");
-                return;
-            }
             if (cropRenderOutputMaterial != null) {
                 UpdateDebugColor();
                 cropRenderOutputMaterial.SetVector("_CropRegion", settings.cropRect.GetRectAsVector4());

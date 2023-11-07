@@ -11,7 +11,7 @@ namespace ETC.CaveCavern {
         [SerializeReference] CavernRenderSettings settings;
         public bool renderStereo = true;
         
-        [SerializeField] private CavernOutputCamera outputCamera;
+        [SerializeField] private CavernSingleCameraOutput outputCamera;
         [SerializeField, HideInInspector] private RenderTexture cubemapLeftEye;
         [SerializeField, HideInInspector] private RenderTexture cubemapRightEye;
         [SerializeField, HideInInspector] private RenderTexture equirect;

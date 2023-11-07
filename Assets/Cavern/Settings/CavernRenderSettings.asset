@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stereoSeparation: 0.064
   cubemapRenderMask: 31
-  perEyeRes: 1024
+  perEyeRes: 2048
   <OutputWidth>k__BackingField: 3840
-  <OutputHeight>k__BackingField: 720
+  <OutputHeight>k__BackingField: 1440
