@@ -21,7 +21,7 @@ namespace ETC.CaveCavern {
         public bool debugSwapLeftRight = false;
         public bool debugNoStereo = false;
 
-        private void Awake() {
+        private void Start() {
             int perEyeRes = settings.GetPerEyeRes();
             cubemapLeftEye = new RenderTexture(perEyeRes, perEyeRes, 24, RenderTextureFormat.ARGB32);
             cubemapLeftEye.dimension = TextureDimension.Cube;

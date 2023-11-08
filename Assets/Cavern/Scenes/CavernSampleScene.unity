@@ -280,7 +280,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5006707694399490762, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 650966491}
   m_SourcePrefab: {fileID: 100100000, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
 --- !u!1 &389152868
 GameObject:
@@ -297,7 +300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &389152869
 Transform:
   m_ObjectHideFlags: 0
@@ -315,6 +318,54 @@ Transform:
   - {fileID: 2042484710}
   m_Father: {fileID: 1120040324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &415828376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415828377}
+  - component: {fileID: 415828378}
+  m_Layer: 0
+  m_Name: CavernManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415828377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415828376}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1120040324}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &415828378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415828376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926d35577b40b624f9d2164381079e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Settings>k__BackingField: {fileID: 11400000, guid: 1f245225d35188a4cb4d12df6d9fb036, type: 2}
+  singleCam: {fileID: 154835310}
+  multiCam: {fileID: 1812422236}
+  legacyRig: {fileID: 650966491}
 --- !u!1 &461635288
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,11 +412,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &650966489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5006707694399490762, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
+  m_PrefabInstance: {fileID: 167045148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &650966490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5006707694399490760, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
   m_PrefabInstance: {fileID: 167045148}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &650966491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650966489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a938b8bcfe9fb1d40affb2d47d572289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +670,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 415828377}
   - {fileID: 389152869}
   - {fileID: 650966490}
   m_Father: {fileID: 0}
@@ -711,7 +780,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2042484710}
-  - component: {fileID: 2042484711}
   m_Layer: 0
   m_Name: CameraOutputManager
   m_TagString: Untagged
@@ -736,21 +804,6 @@ Transform:
   - {fileID: 1812422235}
   m_Father: {fileID: 389152869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2042484711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042484709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 926d35577b40b624f9d2164381079e9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Settings>k__BackingField: {fileID: 11400000, guid: 1f245225d35188a4cb4d12df6d9fb036, type: 2}
-  singleCam: {fileID: 154835310}
-  multiCam: {fileID: 1812422236}
 --- !u!23 &146421581222649152
 MeshRenderer:
   m_ObjectHideFlags: 0

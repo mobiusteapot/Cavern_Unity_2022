@@ -7,6 +7,7 @@ namespace ETC.CaveCavern
     public enum CameraOutputMode
     {
         SingleDisplay,
-        MultiDisplay
+        MultiDisplay,
+        MultiDisplayLegacy,
     }
 }

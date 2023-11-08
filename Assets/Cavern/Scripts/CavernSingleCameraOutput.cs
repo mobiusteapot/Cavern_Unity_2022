@@ -9,7 +9,7 @@ namespace ETC.CaveCavern {
         private RenderTexture outputRT;
         private Camera cam;
         private bool hasRT = false;
-        public CavernOutputSettings settings { private get; set; }
+        private CavernOutputSettings settings;
 
         // Debug variables
         public bool debugColorOutput = false;
@@ -20,6 +20,8 @@ namespace ETC.CaveCavern {
             };
         }
         private void Awake() {
+            this.gameObject.ValidateIfEnabled();
+            settings = CavernManager.Instance.Settings;
             cropRenderOutputMaterial = new Material(cropRenderOutputShader);
         }
 #if UNITY_EDITOR
