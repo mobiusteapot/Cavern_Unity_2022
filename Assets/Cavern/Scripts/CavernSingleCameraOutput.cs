@@ -2,15 +2,13 @@ using UnityEngine;
 
 namespace ETC.CaveCavern {
     [RequireComponent(typeof(Camera))]
-    public class CavernSingleCameraOutput : MonoBehaviour {
+    public class CavernSingleCameraOutput : CavernController {
 
         [SerializeField] private Shader cropRenderOutputShader;
         private Material cropRenderOutputMaterial;
         private RenderTexture outputRT;
         private Camera cam;
         private bool hasRT = false;
-        private CavernOutputSettings settings;
-
         // Debug variables
         public bool debugColorOutput = false;
         private void Reset() {
@@ -19,9 +17,8 @@ namespace ETC.CaveCavern {
                 DestroyImmediate(audioListener);
             };
         }
-        private void Awake() {
-            this.gameObject.ValidateIfEnabled();
-            settings = CavernManager.Instance.Settings;
+        protected override void Awake() {
+            base.Awake();
             cropRenderOutputMaterial = new Material(cropRenderOutputShader);
         }
 #if UNITY_EDITOR

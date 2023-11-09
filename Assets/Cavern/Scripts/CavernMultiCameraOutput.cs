@@ -3,14 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace ETC.CaveCavern
 {
-    public class CavernMultiCameraOutput : MonoBehaviour
+    // This should probably be inheritance instead
+    public class CavernMultiCameraOutput : CavernController
     {
-        private CavernOutputSettings settings;
 
-        private void Awake()
-        {
-            settings = CavernManager.Instance.Settings;
-            this.gameObject.ValidateIfEnabled();
-        }
     }
 }

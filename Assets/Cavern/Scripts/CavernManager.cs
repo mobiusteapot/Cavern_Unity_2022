@@ -1,18 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ETC.CaveCavern
 {
     [DisallowMultipleComponent]
-    public class CavernManager : MonoBehaviour
+    public class CavernManager : Singleton<CavernManager>
     {
-        public static CavernManager Instance;
         [field: SerializeField] public CavernOutputSettings Settings { get; private set; }
         private void Awake()
         {
-            Instance = this;
             ValidateOutputManager();
         }
 
@@ -25,7 +21,7 @@ namespace ETC.CaveCavern
                 case CameraOutputMode.MultiDisplay:
                     return (type == typeof(CavernMultiCameraOutput));
                 case CameraOutputMode.MultiDisplayLegacy:
-                    return (type == typeof(CavernLegacyRig));
+                    return (type == typeof(CavernLegacyController));
                 default:
                     Debug.LogError("Unknown type attempting to validate with Cavern Manager");
                     return false;
