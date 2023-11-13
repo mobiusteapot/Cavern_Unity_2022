@@ -78,7 +78,7 @@ public class CaveCamera : MonoBehaviour
         DeleteCameras();
 
         // Setup our output frame
-        outFrame = new RenderTexture(panelResolution.x * CaveControls.panelCount(), panelResolution.y * 2, 24);
+        outFrame = new RenderTexture(panelResolution.x * CavernLegacyController.panelCount(), panelResolution.y * 2, 24);
         RenderCam.SetTexture(outFrame);
 
         // First left, then right eye cameras
@@ -86,10 +86,10 @@ public class CaveCamera : MonoBehaviour
         {
 
             // Create a camera for each plane of our cave controls
-            for (int i = 0; i < CaveControls.panelCount(); i++)
+            for (int i = 0; i < CavernLegacyController.panelCount(); i++)
             {
                 // Get panel position
-                Vector3[] panelCorners = CaveControls.getPanelCorners(i);
+                Vector3[] panelCorners = CavernLegacyController.getPanelCorners(i);
 
                 // Camera orientation depends on the mode
                 GameObject cam = new GameObject("Sub Camera");
@@ -108,12 +108,12 @@ public class CaveCamera : MonoBehaviour
                 cam.transform.parent = transform.parent;
 
                 // Rotate to face the plane
-                cam.transform.RotateAround(transform.up, (- 0.5f * (CaveControls.panelCount360() - 3) + i - 1) * 2 * Mathf.PI / CaveControls.panelCount360());
+                cam.transform.RotateAround(transform.up, (- 0.5f * (CavernLegacyController.panelCount360() - 3) + i - 1) * 2 * Mathf.PI / CavernLegacyController.panelCount360());
 
                 // Move to the side by IPD, keeping tangential to the inner circle
                 if (renderMode == RENDER_MODE.ODS)
                 {
-                    float tangentAngle = CaveControls.singleton.radius * Mathf.Sin(Mathf.Sqrt(Mathf.Pow(IPD / 2, 2) * Mathf.Pow(CaveControls.singleton.radius, 2)));
+                    float tangentAngle = CavernLegacyController.singleton.radius * Mathf.Sin(Mathf.Sqrt(Mathf.Pow(IPD / 2, 2) * Mathf.Pow(CavernLegacyController.singleton.radius, 2)));
                     Vector3 tangentPos = Quaternion.AngleAxis(tangentAngle * Mathf.Rad2Deg, cam.transform.up * eye) * cam.transform.forward;
                     cam.transform.position = transform.position + tangentPos.normalized * IPD / 2000f;
                 }
@@ -143,15 +143,15 @@ public class CaveCamera : MonoBehaviour
 
         // Vector2 scale = new Vector2(1f/CaveControls.panelCount360(), 0.5f);
         // Vector2 scale = new Vector2(0.1f, 0.1f);
-        Vector2 scale = new Vector2(CaveControls.panelCount(), 2f);
+        Vector2 scale = new Vector2(CavernLegacyController.panelCount(), 2f);
 
         // First top, then bottom
         for (int i = 0; i < 2; i++)
         {
             // Left to right
-            for (int j = 0; j < CaveControls.panelCount(); j++)
+            for (int j = 0; j < CavernLegacyController.panelCount(); j++)
             {
-                Graphics.CopyTexture(cameraOutputTextures[i * CaveControls.panelCount() + j], 0, 0, 0, 0, panelResolution.x, panelResolution.y, outFrame, 0, 0, j * panelResolution.x, i * panelResolution.y);
+                Graphics.CopyTexture(cameraOutputTextures[i * CavernLegacyController.panelCount() + j], 0, 0, 0, 0, panelResolution.x, panelResolution.y, outFrame, 0, 0, j * panelResolution.x, i * panelResolution.y);
             }
         }
     }

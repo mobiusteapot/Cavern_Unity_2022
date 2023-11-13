@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace ETC.CaveCavern
 {
-    public enum CameraOutputMode
+    public enum CavernRigType
     {
-        SingleDisplay,
-        MultiDisplay,
+        SingleCamera,
+        Legacy,
     }
 }

@@ -18,15 +18,20 @@ namespace ETC.CaveCavern {
         /// <param name="cavernType">Cavern Controller Object which needs to validate itself</param>
         public static void ValidateIfCavernTypeEnabled(this MonoBehaviour cavernType)
         {
-            bool isActive = CavernManager.Instance.CurrentlyActiveCheck(cavernType.GetType());
-            Debug.Log("Cavern Manager: " + CavernManager.Instance.gameObject.name + " GO: " + cavernType + "\nisactive: " + isActive);
+            bool isActive = CavernOutputManager.Instance.CurrentlyActiveCheck(cavernType.GetType());
+            Debug.Log("Cavern Manager: " + CavernOutputManager.Instance.gameObject.name + " GO: " + cavernType + "\nisactive: " + isActive);
             cavernType.gameObject.SetActive(isActive);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool CurrentlyActiveCheck(Type type) {
-            return CavernManager.Instance.Settings.camOutputMode switch {
+            return CavernOutputManager.Instance.Settings.camOutputMode switch {
                 CameraOutputMode.SingleDisplay => type == typeof(CavernSingleCameraOutput),
                 CameraOutputMode.MultiDisplay => type == typeof(CavernMultiCameraOutput),
-                CameraOutputMode.MultiDisplayLegacy => type == typeof(CavernLegacyController),
+             //   CameraOutputMode.MultiDisplayLegacy => type == typeof(CavernLegacyController),
                 _ => false
             };
         }

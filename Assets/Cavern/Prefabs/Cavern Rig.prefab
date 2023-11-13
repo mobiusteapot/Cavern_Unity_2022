@@ -309,14 +309,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4280547999248049237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04464c8414ba2054c8681c69496c0c8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4235f5a0d3e3b424ea00713009ec783b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3.03
-  height: 2.3368
-  elevation: 0
-  resolution: 32
-  angle: 360
+  radius: 3
+  height: 2
+  elevation: 0.1
+  resolution: 10
+  angle: 270
   test: 1
 --- !u!114 &4320946630772699105
 MonoBehaviour:

@@ -229,6 +229,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1120040324}
     m_Modifications:
+    - target: {fileID: 4015269710422604413, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5006707694399490760, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.14999771
@@ -277,7 +281,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2480340962667878321, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -359,13 +364,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 415828376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 926d35577b40b624f9d2164381079e9a, type: 3}
+  m_Script: {fileID: 11500000, guid: b10cecb0231e1fe4196f3e5781d5c3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Settings>k__BackingField: {fileID: 11400000, guid: 1f245225d35188a4cb4d12df6d9fb036, type: 2}
-  singleCam: {fileID: 154835310}
-  multiCam: {fileID: 1812422236}
-  legacyRig: {fileID: 650966491}
 --- !u!1 &461635288
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,9 +433,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 650966489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a938b8bcfe9fb1d40affb2d47d572289, type: 3}
+  m_Script: {fileID: 11500000, guid: 4235f5a0d3e3b424ea00713009ec783b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 3
+  height: 2
+  elevation: 0.1
+  resolution: 36
+  angle: 270
+  test: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +779,37 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &2018357827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018357828}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2018357828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018357827}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.047018, y: -9.331758, z: -6.5953717}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2042484709
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,3 +3242,4 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 461635290}
   - {fileID: 5518825954091290358}
+  - {fileID: 2018357828}

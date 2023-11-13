@@ -104,7 +104,7 @@ public class OffAxisCam : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             if (CavePlaneIDX != -1)
-                projectionCorners[i] = CaveControls.getPanelCorners(CavePlaneIDX)[i];
+                projectionCorners[i] = CavernLegacyController.getPanelCorners(CavePlaneIDX)[i];
             pointToCorners[i] = (projectionCorners[i] - transform.position) * clipPlane;
 
             lookatDir += pointToCorners[i];

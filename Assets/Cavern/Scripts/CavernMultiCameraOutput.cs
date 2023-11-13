@@ -4,8 +4,7 @@ using UnityEngine;
 namespace ETC.CaveCavern
 {
     // This should probably be inheritance instead
-    public class CavernMultiCameraOutput : CavernController
-    {
+    public class CavernMultiCameraOutput : CavernOutputController {
 
     }
 }

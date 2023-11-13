@@ -4,6 +4,8 @@ namespace ETC.CaveCavern
     [CreateAssetMenu(fileName = "CavernOutputSettings", menuName = "Cavern/CavernOutputSettings")]
     public class CavernOutputSettings : ScriptableObject
     {
+        [Header("Rig Type")]
+        public CavernRigType rigType = CavernRigType.SingleCamera;
         [Header("Display Render Mode")]
         public CameraOutputMode camOutputMode = CameraOutputMode.SingleDisplay;
         public Rect cropRect;

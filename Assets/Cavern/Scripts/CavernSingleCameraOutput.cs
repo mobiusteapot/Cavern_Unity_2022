@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ETC.CaveCavern {
     [RequireComponent(typeof(Camera))]
-    public class CavernSingleCameraOutput : CavernController {
+    public class CavernSingleCameraOutput : CavernOutputController {
 
         [SerializeField] private Shader cropRenderOutputShader;
         private Material cropRenderOutputMaterial;
