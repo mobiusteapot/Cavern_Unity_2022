@@ -83,11 +83,19 @@ namespace ETC.KettleTools {
             } else {
                 Debug.Log("Scene has no readme or none found");
             }
-            ProjectReadme currentSceneReadme = CreateInstance<ProjectReadme>();
-            EditorJsonUtility.FromJsonOverwrite(sceneImporter.userData, currentSceneReadme);
-            if (currentSceneReadme != null && currentSceneReadme.name != "") {
+            string guid = sceneImporter.userData;
+            string guidPath = AssetDatabase.GUIDToAssetPath(guid);
+            SceneAdditionalData sceneData = AssetDatabase.LoadAssetAtPath<SceneAdditionalData>(guidPath);
+            if (sceneData != null && sceneData.name != "") {
+                SceneReadme currentSceneReadme = sceneData.readme;
                 Selection.objects = new UnityEngine.Object[] { currentSceneReadme };
             }
+            // SceneAdditionalData sceneData = CreateInstance<SceneAdditionalData>();
+            // EditorJsonUtility.FromJsonOverwrite(sceneImporter.userData, sceneData);
+            // if (sceneData != null && sceneData.name != "") {
+            //     SceneReadme currentSceneReadme = sceneData.readme;
+            //     Selection.objects = new UnityEngine.Object[] { currentSceneReadme };
+            // }
         }
         static void SelectNewSceneReadme(Scene previousScene, Scene newScene) {
             if (!SessionState.GetBool(s_ShowedFirstReadme, false)) {

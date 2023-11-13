@@ -35,8 +35,9 @@ MonoBehaviour:
     linkText: 
     url: 
   - heading: Cavern Rigs - Legacy
-    text: 'The "Legacy" cavern rig uses 36 cameras which get stitched into a single
-      render texture. These "sub cameras" are created on runtime and driven by the '
+    text: The "Legacy" cavern rig uses 36 cameras which get stitched into a single
+      render texture. These "sub cameras" are created on runtime and driven by the
+      Cavern Legacy Controller.
     linkText: 
     url: 
   loadedLayout: 0
