@@ -2,9 +2,7 @@ using UnityEngine;
 
 namespace ETC.CaveCavern {
     [RequireComponent(typeof(Camera))]
-    public class CavernSingleCameraOutput : CavernOutputController {
-        protected override CameraOutputMode cameraOutputMode => CameraOutputMode.SingleDisplay;
-        protected override CavernRigType cavernRigType => CavernRigType.SingleCamera;
+    public class CavernSingleCameraOutput : MonoBehaviour, INeedCavernSettings {
         [SerializeField] private Shader cropRenderOutputShader;
         private Material cropRenderOutputMaterial;
         private RenderTexture outputRT;
@@ -18,8 +16,7 @@ namespace ETC.CaveCavern {
                 DestroyImmediate(audioListener);
             };
         }
-        protected override void Awake() {
-            base.Awake();
+        private void Awake() {
             cropRenderOutputMaterial = new Material(cropRenderOutputShader);
         }
 #if UNITY_EDITOR
@@ -28,7 +25,7 @@ namespace ETC.CaveCavern {
         private void Update() {
             if (cropRenderOutputMaterial != null) {
                 UpdateDebugColor();
-                cropRenderOutputMaterial.SetVector("_CropRegion", settings.cropRect.GetRectAsVector4());
+                cropRenderOutputMaterial.SetVector("_CropRegion", INeedCavernSettings.GetCropRect().GetRectAsVector4());
             }
         }
 #endif
@@ -42,7 +39,7 @@ namespace ETC.CaveCavern {
         public void SetOutputRT(RenderTexture newRT) {
             if (newRT != null) {
                 outputRT = newRT;
-                cropRenderOutputMaterial.SetVector("_CropRegion", settings.cropRect.GetRectAsVector4());
+                cropRenderOutputMaterial.SetVector("_CropRegion", INeedCavernSettings.GetCropRect().GetRectAsVector4());
                 cropRenderOutputMaterial.SetTexture("_MainTex", outputRT);
                 hasRT = true;
             }

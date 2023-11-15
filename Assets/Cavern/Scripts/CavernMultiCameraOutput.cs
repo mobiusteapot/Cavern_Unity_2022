@@ -4,8 +4,7 @@ using UnityEngine;
 namespace ETC.CaveCavern
 {
     // This should probably be inheritance instead
-    public class CavernMultiCameraOutput : CavernOutputController {
-        protected override CameraOutputMode cameraOutputMode => CameraOutputMode.MultiDisplay;
+    public class CavernMultiCameraOutput : CavernRigActivator {
         protected override CavernRigType cavernRigType => CavernRigType.SingleCamera;
     }
 }

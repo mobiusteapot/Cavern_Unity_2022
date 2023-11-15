@@ -306,6 +306,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5006707694399490762, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
       insertIndex: -1
       addedObject: {fileID: 650966491}
+    - targetCorrespondingSourceObject: {fileID: 5006707694399490762, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 650966492}
     - targetCorrespondingSourceObject: {fileID: 5774613799461765155, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
       insertIndex: -1
       addedObject: {fileID: 38168795}
@@ -319,6 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 389152869}
+  - component: {fileID: 389152870}
   m_Layer: 0
   m_Name: NewCavernRig
   m_TagString: Untagged
@@ -343,6 +347,20 @@ Transform:
   - {fileID: 2042484710}
   m_Father: {fileID: 1120040324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389152870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389152868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ff8c8349849c440a24973369bf3e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cavernSingleCameraOutput: {fileID: 154835310}
+  cavernMultiCameraOutput: {fileID: 1812422236}
 --- !u!1 &415828376
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +479,18 @@ MonoBehaviour:
   elevation: 0.1
   resolution: 36
   angle: 270
+--- !u!114 &650966492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650966489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e9c715c4fd26449b355212f0cc621a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

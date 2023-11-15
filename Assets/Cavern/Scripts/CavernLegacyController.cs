@@ -5,9 +5,8 @@ using UnityEngine;
 namespace ETC.CaveCavern
 {
     // Todo: need to refactor CavernOutputController, inheriting this is unintutive
-    public class CavernLegacyController : CavernOutputController
+    public class CavernLegacyController : CavernRigActivator
     {
-        protected override CameraOutputMode cameraOutputMode => CameraOutputMode.SingleDisplay;
         protected override CavernRigType cavernRigType => CavernRigType.Legacy;
         [Tooltip("Cave Radius in Meters")]
         public float radius = 3;
