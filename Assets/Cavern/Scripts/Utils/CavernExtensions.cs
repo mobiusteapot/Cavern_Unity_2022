@@ -12,28 +12,5 @@ namespace ETC.CaveCavern {
         public static Vector4 GetRectAsVector4(this Rect rect) {
             return new Vector4(rect.x, rect.y, rect.width, rect.height);
         }
-        /// <summary>
-        /// Used by Cavern Controller objects to ensure they are validated
-        /// </summary>
-        /// <param name="cavernType">Cavern Controller Object which needs to validate itself</param>
-        public static void ValidateIfCavernTypeEnabled(this MonoBehaviour cavernType)
-        {
-            bool isActive = CavernOutputManager.Instance.CurrentlyActiveCheck(cavernType.GetType());
-            Debug.Log("Cavern Manager: " + CavernOutputManager.Instance.gameObject.name + " GO: " + cavernType + "\nisactive: " + isActive);
-            cavernType.gameObject.SetActive(isActive);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static bool CurrentlyActiveCheck(Type type) {
-            return CavernOutputManager.Instance.Settings.camOutputMode switch {
-                CameraOutputMode.SingleDisplay => type == typeof(CavernSingleCameraOutput),
-                CameraOutputMode.MultiDisplay => type == typeof(CavernMultiCameraOutput),
-             //   CameraOutputMode.MultiDisplayLegacy => type == typeof(CavernLegacyController),
-                _ => false
-            };
-        }
     }
 }

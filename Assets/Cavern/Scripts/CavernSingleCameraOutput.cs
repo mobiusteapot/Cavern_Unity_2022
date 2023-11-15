@@ -3,7 +3,8 @@ using UnityEngine;
 namespace ETC.CaveCavern {
     [RequireComponent(typeof(Camera))]
     public class CavernSingleCameraOutput : CavernOutputController {
-
+        protected override CameraOutputMode cameraOutputMode => CameraOutputMode.SingleDisplay;
+        protected override CavernRigType cavernRigType => CavernRigType.SingleCamera;
         [SerializeField] private Shader cropRenderOutputShader;
         private Material cropRenderOutputMaterial;
         private RenderTexture outputRT;

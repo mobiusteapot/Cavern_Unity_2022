@@ -1,20 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CaveEmulator : MonoBehaviour
+namespace ETC.CaveCavern
 {
-    void Start()
+    public class CaveEmulator : MonoBehaviour
     {
-        StartCoroutine(AttemptInitialize());
-    }
+        void Start()
+        {
+            StartCoroutine(AttemptInitialize());
+        }
 
-    private IEnumerator AttemptInitialize()
-    {
-        while (CaveCamera.outFrame == null)
-            yield return new WaitForEndOfFrame();
+        private IEnumerator AttemptInitialize()
+        {
+            while (CaveCamera.outFrame == null)
+                yield return new WaitForEndOfFrame();
 
-        GetComponent<MeshRenderer>().material.mainTexture = CaveCamera.outFrame;
+            GetComponent<MeshRenderer>().material.mainTexture = CaveCamera.outFrame;
+        }
     }
 }

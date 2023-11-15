@@ -9,7 +9,7 @@ namespace ETC.CaveCavern
     /// Each 
     /// </summary>
     [DisallowMultipleComponent]
-    public class CavernOutputManager : Singleton<CavernOutputManager>
+    public class CavernManager : Singleton<CavernManager>
     {
         [field: SerializeField] public CavernOutputSettings Settings { get; private set; }
         private void Awake()
@@ -17,19 +17,6 @@ namespace ETC.CaveCavern
             ValidateOutputManager();
         }
 
-        public bool CurrentlyActiveCheck(Type type)
-        {
-            switch (Settings.camOutputMode)
-            {
-                case CameraOutputMode.SingleDisplay:
-                    return (type == typeof(CavernSingleCameraOutput));
-                case CameraOutputMode.MultiDisplay:
-                    return (type == typeof(CavernMultiCameraOutput));
-                default:
-                    Debug.LogError("Unknown type attempting to validate with Cavern Manager");
-                    return false;
-            }
-        }
         private void ValidateOutputManager()
         {
             if (Settings == null)

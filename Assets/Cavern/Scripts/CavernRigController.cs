@@ -8,8 +8,7 @@ namespace ETC.CaveCavern {
     {
         public CavernOutputSettings settings { protected get; set; }
         protected virtual void Awake() {
-            this.ValidateIfCavernTypeEnabled();
-            settings = CavernOutputManager.Instance.Settings;
+            settings = CavernManager.Instance.Settings;
         }
     }
 
