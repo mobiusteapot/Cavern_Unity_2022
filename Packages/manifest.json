@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.etc.kettletools": "file:/Users/mobiusteapot/Documents/Programming/gitRepo/ETC_Unity_Packages/KettleToolsProject/Packages/com.etc.kettletools",
     "com.unity.collab-proxy": "2.0.7",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.6",
