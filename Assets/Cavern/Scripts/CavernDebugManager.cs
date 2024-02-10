@@ -35,6 +35,6 @@ namespace ETC.CaveCavern {
                 cavernOutputCamera.debugColorOutput = !cavernOutputCamera.debugColorOutput;
             }
         }
-    }
 #endif
+    }
 }
