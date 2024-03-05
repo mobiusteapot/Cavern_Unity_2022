@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c2c52775621154bb0d32ee728f5459, type: 3}
   m_Name: CavernSampleSceneSceneData
   m_EditorClassIdentifier: 
-  readme: {fileID: 11400000, guid: e002ce2e5e7d04f1fb94a2da9e4a03a5, type: 2}
+  readme: {fileID: 11400000, guid: c307962182d1e4de9a612b7e2031e9d2, type: 2}
   showSceneReadmeSetting: -1
