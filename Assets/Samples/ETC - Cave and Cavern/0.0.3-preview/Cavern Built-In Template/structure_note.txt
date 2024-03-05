@@ -1,0 +1,3 @@
+notes for unifying legacy + sphere cavern under one project
+
+each cavern type has a controller. All controllers handled in terms of being activated vs not by the "Cavern Manager" singleton

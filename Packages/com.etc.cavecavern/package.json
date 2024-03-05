@@ -1,7 +1,7 @@
 {
   "name": "com.etc.cavecavern",
   "displayName": "ETC - Cave and Cavern",
-  "version": "0.0.3-preview",
+  "version": "0.0.4-preview",
   "unity": "2022.3",
   "description": "Package for handling display output and common utilities for the Cave and Cavern.",
   "dependencies": {
@@ -25,6 +25,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:mobiusteapot/com.etc.kettletools.git"
-  }
+    "url": "ssh://git@github.com:mobiusteapot/Cavern_Unity_2022.git"
+  },
+  "samples": [
+    {
+      "displayName": "Cavern Built-In Template",
+      "description": "Contains Quick start scene for Cavern with Built-In Render Pipeline.",
+      "path": "Samples~/CavernBIRP"
+    },
+    {
+      "displayName": "Fullscreen Preview Asset",
+      "description": "Fullscreen Preview Asset from the asset store. Helpful for cavern preview. Not for public distribution.",
+      "path": "Samples~/FullscreenAsset"
+    }
+  ]
 }
