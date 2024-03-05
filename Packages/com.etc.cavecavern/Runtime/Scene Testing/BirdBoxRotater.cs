@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BirdBoxRotater : MonoBehaviour
@@ -7,6 +5,7 @@ public class BirdBoxRotater : MonoBehaviour
     public float RotateSpeed = 1f;
     public float YRotateMin = 0f;
     public float YRotateMax = 270f;
+    [HideInInspector]
     public GameObject ObjectToRotate;
     bool curRotForward = false;
     bool hasReachedEnd = false;
@@ -15,6 +14,10 @@ public class BirdBoxRotater : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(ObjectToRotate == null)
+        {
+            return;
+        }
         if (hasReachedEnd)
         {
             curRotForward = false;
@@ -36,6 +39,7 @@ public class BirdBoxRotater : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if(ObjectToRotate == null) return;
         Vector3 distanceVector = Vector3.Normalize(transform.position - ObjectToRotate.transform.position);
         float distanceBetween = Vector3.Distance(transform.position, ObjectToRotate.transform.position);
         // Rotate the distance vector by the min and max angles

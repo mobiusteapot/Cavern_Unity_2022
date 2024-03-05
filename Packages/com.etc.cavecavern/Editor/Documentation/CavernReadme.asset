@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   title: Readme
-  sections: []
+  sections:
+  - heading: Welcome to the Cavern!
+    text: 
+    linkText: 
+    url: 
   isInitalized: 1
   linkStyle:
     m_Name: ControlLabel

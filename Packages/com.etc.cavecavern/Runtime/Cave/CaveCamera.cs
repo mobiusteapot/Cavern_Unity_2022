@@ -99,7 +99,7 @@ namespace ETC.CaveCavern
                     if (renderMode == RENDER_MODE.HEAD_TRACKED)
                     {
                         // Ensure this camera maintains a parent constraint to this camera, but not rotationally
-                        PositionConstraint posConstraint = cam.AddComponent<PositionConstraint>();
+                        CopyTransformPosition posConstraint = cam.AddComponent<CopyTransformPosition>();
                         cam.transform.position = transform.position + transform.right * eye * IPD / 2000f;
                         posConstraint.BindToParent(transform);
 
@@ -111,7 +111,7 @@ namespace ETC.CaveCavern
                     cam.transform.parent = transform.parent;
 
                     // Rotate to face the plane
-                    cam.transform.RotateAround(transform.up, (- 0.5f * (CavernLegacyController.panelCount360() - 3) + i - 1) * 2 * Mathf.PI / CavernLegacyController.panelCount360());
+                    cam.transform.Rotate(transform.up, (- 0.5f * (CavernLegacyController.panelCount360() - 3) + i - 1) * 2 * Mathf.PI / CavernLegacyController.panelCount360());
 
                     // Move to the side by IPD, keeping tangential to the inner circle
                     if (renderMode == RENDER_MODE.ODS)
