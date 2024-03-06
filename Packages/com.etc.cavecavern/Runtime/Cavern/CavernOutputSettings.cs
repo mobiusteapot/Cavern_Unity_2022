@@ -9,6 +9,7 @@ namespace ETC.CaveCavern
         [Header("Display Render Mode")]
         public CameraOutputMode camOutputMode = CameraOutputMode.SingleDisplay;
         public Rect cropRect;
+        public Rect stretchRect;
 
         public void Reset()
         {

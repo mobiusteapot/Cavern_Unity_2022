@@ -26,6 +26,7 @@ namespace ETC.CaveCavern {
             if (cropRenderOutputMaterial != null) {
                 UpdateDebugColor();
                 cropRenderOutputMaterial.SetVector("_CropRegion", INeedCavernSettings.GetCropRect().GetRectAsVector4());
+                cropRenderOutputMaterial.SetVector("_StretchRegion", INeedCavernSettings.GetStretchRect().GetRectAsVector4());
             }
         }
 #endif
@@ -40,6 +41,7 @@ namespace ETC.CaveCavern {
             if (newRT != null) {
                 outputRT = newRT;
                 cropRenderOutputMaterial.SetVector("_CropRegion", INeedCavernSettings.GetCropRect().GetRectAsVector4());
+                cropRenderOutputMaterial.SetVector("_StretchRegion", INeedCavernSettings.GetStretchRect().GetRectAsVector4());
                 cropRenderOutputMaterial.SetTexture("_MainTex", outputRT);
                 hasRT = true;
             }

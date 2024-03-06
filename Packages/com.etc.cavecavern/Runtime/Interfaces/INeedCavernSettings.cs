@@ -15,5 +15,9 @@ namespace ETC.CaveCavern{
         static public Rect GetCropRect(){
             return GetCavernOutputSettings().cropRect;
         }
+        static public Rect GetStretchRect()
+        {
+            return GetCavernOutputSettings().stretchRect;
+        }
     }
 }
