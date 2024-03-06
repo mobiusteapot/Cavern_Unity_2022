@@ -24,14 +24,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680618537348007228}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.8106753, z: -0, w: 0.585496}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 334592385585235360}
   m_Father: {fileID: 6597667389409133453}
-  m_LocalEulerAnglesHint: {x: 0, y: 108.324, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787685414733291768
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,9 +131,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6597667389409133453}
-  - component: {fileID: 7998582321280623479}
-  - component: {fileID: 5453461891728589155}
   - component: {fileID: 2618819102367339449}
+  - component: {fileID: 7998582321280623479}
+  - component: {fileID: 2240452660721231871}
   m_Layer: 0
   m_Name: BirdBoxManager
   m_TagString: Untagged
@@ -158,43 +158,6 @@ Transform:
   - {fileID: 7665448876755611588}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7998582321280623479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2654051848508245324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2081fa498eedf46b68bfc7d8abd97eb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  birdBox: {fileID: 8740464000771146594}
-  birdBoxRotater: {fileID: 5453461891728589155}
-  bbMode: 0
-  birdBoxFrames:
-  - {fileID: 5168536386325332599}
-  - {fileID: 2783713024725289448}
-  - {fileID: 719396885807326365}
-  - {fileID: 8762938783239052972}
-  - {fileID: 6992286070960522011}
---- !u!114 &5453461891728589155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2654051848508245324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10022be8ad2de1f48bc715b7d96951dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectToRotate: {fileID: 8740464000771146594}
-  RotateSpeed: 1
-  YRotateMin: 0
-  YRotateMax: 270
 --- !u!114 &2618819102367339449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +171,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Readme: {fileID: 11400000, guid: 77cadf55ce6d34292bda528390ff7db3, type: 2}
+--- !u!114 &7998582321280623479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654051848508245324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2081fa498eedf46b68bfc7d8abd97eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdBox: {fileID: 8740464000771146594}
+  birdBoxRotater: {fileID: 2240452660721231871}
+  bbMode: 0
+  birdBoxFrames:
+  - {fileID: 5168536386325332599}
+  - {fileID: 2783713024725289448}
+  - {fileID: 719396885807326365}
+  - {fileID: 8762938783239052972}
+  - {fileID: 6992286070960522011}
+--- !u!114 &2240452660721231871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654051848508245324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc1791d293d7a674e9f7a8975b75d0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToRotate: {fileID: 8740464000771146594}
+  ObjectToRotateAround: {fileID: 680618537348007228}
+  RotateDuration: 5
+  YRotateMax: 270
+  YRotateMin: 0
+  defaultOffset: 90
 --- !u!1 &3536796235373744671
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +409,7 @@ Transform:
   m_GameObject: {fileID: 8740464000771146594}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.16223718, z: -0, w: 0.9867518}
-  m_LocalPosition: {x: -4.300002, y: 0, z: -1.4000001}
+  m_LocalPosition: {x: -3.84, y: 0, z: -0.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
