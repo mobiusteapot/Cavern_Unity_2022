@@ -112,7 +112,7 @@ namespace ETC.CaveCavern
 
                     // Rotate to face the plane
                     var rotAmount = (-0.5f * (CavernLegacyController.panelCount360() - 3) + i - 1) * 2 * Mathf.PI / CavernLegacyController.panelCount360();
-                    cam.transform.Rotate(transform.up, rotAmount * Mathf.Rad2Deg, Space.World);
+                    cam.transform.Rotate(transform.up, rotAmount * Mathf.Rad2Deg, Space.Self);
 
                     // Move to the side by IPD, keeping tangential to the inner circle
                     if (renderMode == RENDER_MODE.ODS)

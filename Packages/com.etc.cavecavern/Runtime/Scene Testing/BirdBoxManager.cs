@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class BirdBoxManager : MonoBehaviour {
     public GameObject birdBox;
-    public BirdBoxRotater birdBoxRotater;
+    public RotateObjectBetweenPoints birdBoxRotater;
     public BirdBoxMode bbMode = BirdBoxMode.Rotate;
     public BirdBoxFrame[] birdBoxFrames;
+    private bool savedPosition = false;
+    private Vector3 birdBoxInitPos;
     public BirdBoxFrame GetBirdBoxFrame(BirdBoxMode mode){
         // Return the frame that matches the mode
         foreach (BirdBoxFrame frame in birdBoxFrames){
@@ -16,22 +18,33 @@ public class BirdBoxManager : MonoBehaviour {
     }
     private void OnValidate() {
         if (birdBox == null) return;
-        if (birdBoxRotater != null)
-            birdBoxRotater.ObjectToRotate = birdBox;
+        if (birdBoxRotater == null) return;
+        
+        birdBoxRotater.ObjectToRotate = birdBox;
         UpdateBirdBox();
 
+    }
+    private void Awake()
+    {
+        birdBoxInitPos = birdBox.transform.localPosition;
     }
     private void FixedUpdate(){
         UpdateBirdBox();
     }
 
     public void UpdateBirdBox(){
-        if(bbMode == BirdBoxMode.Rotate){
+        if (bbMode == BirdBoxMode.Rotate){
             birdBoxRotater.enabled = true;
             birdBoxRotater.ObjectToRotate = birdBox;
+            if (savedPosition) {
+                birdBox.transform.localPosition = birdBoxInitPos;
+                savedPosition = false;
+            }
             return;
         } else {
             birdBoxRotater.enabled = false;
+            birdBoxRotater.StopRotation();
+            savedPosition = true;
         }
         var frame = GetBirdBoxFrame(bbMode);
         if (frame != null){
