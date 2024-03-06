@@ -272,7 +272,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908371825833069231}
-  - component: {fileID: 2480340962667878321}
   - component: {fileID: 4320946630772699105}
   - component: {fileID: 891401839651771530}
   m_Layer: 0
@@ -300,24 +299,6 @@ Transform:
   - {fileID: 7474675370658182052}
   m_Father: {fileID: 5006707694399490760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2480340962667878321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4280547999248049237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4235f5a0d3e3b424ea00713009ec783b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  height: 2
-  elevation: 0.1
-  resolution: 10
-  angle: 270
-  test: 1
 --- !u!114 &4320946630772699105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,8 +337,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5006707694399490760}
+  - component: {fileID: 6061015451837115671}
+  - component: {fileID: 6590161262481450284}
   m_Layer: 0
-  m_Name: Cavern Rig
+  m_Name: LegacyCavernRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,6 +362,35 @@ Transform:
   - {fileID: 1908371825833069231}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6061015451837115671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5006707694399490762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4235f5a0d3e3b424ea00713009ec783b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  height: 2
+  elevation: 0.1
+  resolution: 36
+  angle: 270
+--- !u!114 &6590161262481450284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5006707694399490762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e9c715c4fd26449b355212f0cc621a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5774613799461765155
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,19 +732,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -740,7 +752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -756,7 +768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_IsActive
