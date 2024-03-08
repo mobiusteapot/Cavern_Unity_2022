@@ -15,5 +15,6 @@ MonoBehaviour:
   stereoSeparation: 0.064
   cubemapRenderMask: 19
   perEyeRes: 4096
+  antiAliasing: 1
   <OutputWidth>k__BackingField: 5760
   <OutputHeight>k__BackingField: 2160

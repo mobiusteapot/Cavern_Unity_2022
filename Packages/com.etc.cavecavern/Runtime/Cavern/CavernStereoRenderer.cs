@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.Rendering;
 #if UNITY_EDITOR
@@ -23,13 +24,17 @@ namespace ETC.CaveCavern {
 
         private void Start() {
             int perEyeRes = settings.GetPerEyeRes();
-            cubemapLeftEye = new RenderTexture(perEyeRes, perEyeRes, 24, RenderTextureFormat.ARGB32);
-            cubemapLeftEye.dimension = TextureDimension.Cube;
-            cubemapRightEye = new RenderTexture(perEyeRes, perEyeRes, 24, RenderTextureFormat.ARGB32);
-            cubemapRightEye.dimension = TextureDimension.Cube;
+            RenderTextureDescriptor cubemapDesc = new RenderTextureDescriptor(perEyeRes, perEyeRes, RenderTextureFormat.ARGB32, 24);
+            cubemapDesc.dimension = TextureDimension.Cube;
+            // Todo: This appears to make no difference. Dunno why
+            cubemapDesc.msaaSamples = settings.GetAntiAliasing();
+            Debug.Log("CavernStereoRenderer: " + settings.GetAntiAliasing());
+            cubemapLeftEye = new RenderTexture(cubemapDesc);
+            cubemapRightEye = new RenderTexture(cubemapDesc);
             //equirect height should be twice the height of cubemap
             equirect = new RenderTexture(settings.OutputWidth, settings.OutputHeight, 24, RenderTextureFormat.ARGB32);
             equirect.wrapMode = TextureWrapMode.Clamp;
+            equirect.antiAliasing = settings.GetAntiAliasing();
             cubemapCam = GetComponent<Camera>();
             cubemapCam.enabled = false;
             if (outputCamera == null) {

@@ -10,6 +10,7 @@ namespace ETC.CaveCavern
         [Header("Render Settings")]
         [SerializeField] private CubemapRenderMask cubemapRenderMask;
         [SerializeField] private CubemapResolution perEyeRes;
+        [SerializeField] private AntiAliasing antiAliasing;
         [field: SerializeField] public int OutputWidth { get; private set; }
         [field: SerializeField] public int OutputHeight { get; private set; }
 
@@ -19,6 +20,7 @@ namespace ETC.CaveCavern
             perEyeRes = CubemapResolution.Medium;
             OutputWidth = 3840;
             OutputHeight = 720;
+            antiAliasing = AntiAliasing._2x;
         }
 
         public int GetPerEyeRes()
@@ -28,6 +30,10 @@ namespace ETC.CaveCavern
         public int GetCubemapMask()
         {
             return (int)cubemapRenderMask;
+        }
+        public int GetAntiAliasing()
+        {
+            return (int)antiAliasing;
         }
     }
 }

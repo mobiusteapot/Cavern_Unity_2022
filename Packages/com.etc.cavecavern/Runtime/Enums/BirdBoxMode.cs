@@ -1,8 +1,8 @@
 public enum BirdBoxMode{
     Rotate,
-    BottomRight,
-    TopRight,
-    TopLeft,
-    BottomLeft,
-    Back
+    FrontRight,
+    FrontLeft,
+    BackRight,
+    BackLeft,
+    BackCenter
 }

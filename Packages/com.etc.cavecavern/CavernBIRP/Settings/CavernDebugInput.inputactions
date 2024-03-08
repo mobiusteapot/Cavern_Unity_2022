@@ -1,0 +1,154 @@
+{
+    "name": "CavernDebugInput",
+    "maps": [
+        {
+            "name": "Debug",
+            "id": "0d2b2086-9cab-4323-a670-c731c61d1535",
+            "actions": [
+                {
+                    "name": "BirdBoxBackLeft",
+                    "type": "Button",
+                    "id": "7859bb2a-4016-4c8e-a7a0-3e2d10429251",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BirdBoxBackRight",
+                    "type": "Button",
+                    "id": "751b210f-31ab-4e04-8b56-61335ba95065",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BirdBoxFrontRight",
+                    "type": "Button",
+                    "id": "87443852-28ae-4d74-883b-6b0ddbcf418a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BirdBoxFrontLeft",
+                    "type": "Button",
+                    "id": "def97e23-de7a-49cb-90b4-4a1429f2c540",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BirdBoxBackCenter",
+                    "type": "Button",
+                    "id": "864abdf7-4d09-4ced-b961-aff5aab9665c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BirdBoxRotate",
+                    "type": "Button",
+                    "id": "e9a6e054-05e7-454b-bd66-2e4498f04570",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MoveSpeakerToBoxChord",
+                    "type": "Button",
+                    "id": "986da73f-bea2-49fa-969d-7e96345f9b21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "83bd2107-70f6-4022-baa4-299d6c9cd05d",
+                    "path": "<Keyboard>/numpad1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BirdBoxBackLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7bb9544e-b117-45a7-aadf-e06769bc4005",
+                    "path": "<Keyboard>/numpad3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BirdBoxBackRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17c1a096-12bb-491b-aa0d-0f88f55b3b97",
+                    "path": "<Keyboard>/numpad9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BirdBoxFrontRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7688a455-794a-4637-b1ba-06a02b257096",
+                    "path": "<Keyboard>/numpad7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BirdBoxFrontLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4783da3d-5e46-4a85-af03-1d043e6c8373",
+                    "path": "<Keyboard>/numpad2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BirdBoxBackCenter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6fbe7a55-c557-4448-b36c-85969c293e3d",
+                    "path": "<Keyboard>/numpad5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BirdBoxRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7be78b5-6f4a-4442-9e0f-684702108cd2",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveSpeakerToBoxChord",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3199ca7c2d5e949b8edf39569effae, type: 3}
   m_Name: DefaultCavernOutputSettings
   m_EditorClassIdentifier: 
-  rigType: 1
+  rigType: 0
   camOutputMode: 0
   cropRect:
     serializedVersion: 2
