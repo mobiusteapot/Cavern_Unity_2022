@@ -3,7 +3,8 @@ guid: d9f1516fb1b2915489611ea79ef5e642
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cropRenderOutputShader: {fileID: 4800000, guid: 1da9eb6c78c14829b88d349aefb263f4, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

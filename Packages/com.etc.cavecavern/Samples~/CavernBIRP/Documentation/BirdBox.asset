@@ -27,6 +27,13 @@ MonoBehaviour:
       be some minimal sound bleed to other speakers.
     linkText: 
     url: 
+  - heading: Controls
+    text: Use the number pad values 1, 3, 7, and 9 to change the corner, and 5 to
+      toggle if the birdbox should auto rotate. Pressing Ctrl + a number should move
+      the audio listener exactly inside the bird box, which was useful for testing
+      at one point and time but maybe is no longer needed.
+    linkText: 
+    url: 
   isInitalized: 1
   linkStyle:
     m_Name: ControlLabel

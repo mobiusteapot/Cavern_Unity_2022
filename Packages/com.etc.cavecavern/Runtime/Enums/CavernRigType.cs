@@ -7,6 +7,6 @@ namespace ETC.CaveCavern
     public enum CavernRigType
     {
         SingleCamera,
-        Legacy,
+        MultiCamera,
     }
 }

@@ -7,7 +7,7 @@ namespace ETC.CaveCavern
     // Todo: need to refactor CavernOutputController, inheriting this is unintutive
     public class CavernLegacyController : CavernRigActivator
     {
-        protected override CavernRigType cavernRigType => CavernRigType.Legacy;
+        protected override CavernRigType cavernRigType => CavernRigType.MultiCamera;
         [Tooltip("Cave Radius in Meters")]
         public float radius = 3;
 

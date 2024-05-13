@@ -12,11 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e3382aa39c0d94e94a2f4519cc8ac8, type: 3}
   m_Name: CavernStartup
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  title: Readme
+  icon: {fileID: 2800000, guid: df9b2feb2b1dea44baeb60a433f9a0ce, type: 3}
+  title: Welcome to the Cavern!
   sections:
-  - heading: Welcome to the cavern!
-    text: Default
+  - heading: Template
+    text: This template has a working version of the single and multi camera Cavern
+      rigs. You should experiment with both and see which one is right for the type
+      of content you are looking to create.
+    linkText: 
+    url: 
+  - heading: Debugging
+    text: There is a debug manager component (currently used to display the state
+      of the sound test bird box in the editor). You can use this to print information
+      to the screen in play mode in the editor, and the strings will not be included
+      on build. This can be useful for testing, since it is not possible to read
+      the debug log on runtime while previewing Cavern content.
+    linkText: 
+    url: 
+  - heading: Run in Play Mode
+    text: Using the "Fullscreen" asset and preview, you can run the Cavern in Play
+      Mode to iterate and quickly test specific features.
     linkText: 
     url: 
   isInitalized: 1

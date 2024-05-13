@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 6061015451837115671}
   - component: {fileID: 6590161262481450284}
   m_Layer: 0
-  m_Name: LegacyCavernRig
+  m_Name: MultiCameraCavernRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

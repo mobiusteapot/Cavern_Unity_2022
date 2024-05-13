@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 923832400639367484}
   - component: {fileID: 4469727170489962155}
   m_Layer: 0
-  m_Name: NewCavernRig
+  m_Name: SingleCameraCavernRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
