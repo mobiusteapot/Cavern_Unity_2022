@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/mobiusteapot/ETC_Unity_Packages/blob/dev/Logos/KettleToolsLogo.jpg" width="400" />
+<img src="https://raw.githubusercontent.com/mobiusteapot/Cavern_Unity_2022/main/Packages/com.etc.cavecavern/Samples%7E/CavernBIRP/Documentation/Images/CavernIcon.jpg" width="400" />
 </p>
 Package for handling display output and common utilities for the ETC Cave and Cavern.
 <br>
