@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "com.etc.kettletools": "0.0.3-preview"
+        "com.etc.kettletools": "0.0.4-preview"
       }
     },
     "com.etc.kettletools": {
