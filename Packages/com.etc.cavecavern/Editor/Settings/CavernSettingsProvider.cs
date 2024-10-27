@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEditor;
-using ETC.CaveCavern;
 
 namespace ETC.CaveCavern
 {
-    // Todo: Move to a subcategory like Cavern/Graphics?
     public class CavernSettingsProvider : SettingsProvider
     {
         private const string _SettingsPath = "ProjectSettings/CavernSettings.asset";
@@ -12,13 +10,19 @@ namespace ETC.CaveCavern
         private SerializedObject _outputSettings;
         public CavernSettingsProvider(string path, SettingsScope scope = SettingsScope.Project) : base(path, scope) { }
 
-        private bool isGraphicsFoldoutOpen {
+        private bool IsGraphicsFoldoutOpen {
             get => EditorPrefs.GetBool("Cavern_GraphicsFoldout", true);
             set => EditorPrefs.SetBool("Cavern_GraphicsFoldout", value);
         }
 
         public override void OnGUI(string searchContext)
         {
+            if (!SessionState.GetBool("PreloadedAssetsInitDone", false))
+            {
+                PlayerSettings.GetPreloadedAssets();
+                SessionState.SetBool("PreloadedAssetsInitDone", true);
+            }
+
             // Point to the SettingsSOSingleton for renderSettings and outputSettings
 
             if (_renderSettings == null)
@@ -60,8 +64,8 @@ namespace ETC.CaveCavern
 
             bool isUnlocked = AssetDatabase.IsOpenForEdit(_SettingsPath, StatusQueryOptions.ForceUpdate);
             
-            isGraphicsFoldoutOpen = EditorGUILayout.BeginFoldoutHeaderGroup(isGraphicsFoldoutOpen, "Graphics", foldoutStyle);
-            if(isGraphicsFoldoutOpen)
+            IsGraphicsFoldoutOpen = EditorGUILayout.BeginFoldoutHeaderGroup(IsGraphicsFoldoutOpen, "Graphics", foldoutStyle);
+            if(IsGraphicsFoldoutOpen)
             {
                 DrawGraphicsSettings(isUnlocked);
             }

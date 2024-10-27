@@ -14,7 +14,7 @@ using UnityEngine;
 // Execution order is set to -150 to ensure it loads before TextMeshPro things, which seems like a common usecase
 // Unsure what other complications this may cause. Would love feedback from anyone who's familiar with these systems.
 //
-// Has error checking, but only in editor. In runtime, overhead is minimal.
+// This asset is for runtime reading from only. If you want gameplay data to be saved, use a different system.
 [DefaultExecutionOrder(-150)]
 public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
 {
