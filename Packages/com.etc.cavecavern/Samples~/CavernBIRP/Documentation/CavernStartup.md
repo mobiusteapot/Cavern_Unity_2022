@@ -1,3 +1,6 @@
+# Welcome to the Cavern!
+![Alt](Images/CavernIcon.jpg)
+
 # Template
 This template has a working version of the single and multi camera Cavern rigs. You should experiment with both and see which one is right for the type of content you are looking to create.
 

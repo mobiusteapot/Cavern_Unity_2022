@@ -5,15 +5,15 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "com.etc.kettletools": "0.0.4-preview"
+        "com.etc.kt.core": "0.3.5-preview"
       }
     },
-    "com.etc.kettletools": {
-      "version": "0.0.4-preview",
+    "com.etc.kt.core": {
+      "version": "0.3.5-preview",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "http://etc-upm.lan.local.cmu.edu:4873"
+      "url": "https://upm.etc.cmu.edu"
     },
     "com.unity.collab-proxy": {
       "version": "2.0.7",

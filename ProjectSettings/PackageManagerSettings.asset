@@ -28,7 +28,7 @@ MonoBehaviour:
     m_ConfigSource: 0
   - m_Id: scoped:project:ETC
     m_Name: ETC
-    m_Url: http://etc-upm.lan.local.cmu.edu:4873
+    m_Url: https://upm.etc.cmu.edu
     m_Scopes:
     - com.etc
     m_IsDefault: 0
