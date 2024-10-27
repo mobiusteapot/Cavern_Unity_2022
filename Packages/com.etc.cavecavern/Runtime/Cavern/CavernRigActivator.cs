@@ -7,16 +7,11 @@ namespace ETC.CaveCavern{
     public abstract class CavernRigActivator : MonoBehaviour
     {
         abstract protected CavernRigType cavernRigType { get; }
-        public CavernOutputSettings settings { protected get; set; }
-        
-        protected virtual void Awake() {
-            settings = CavernManager.Instance.Settings;
-        }
         protected virtual void Start(){
             SetCavernActive();
         }
         protected bool IsRigTypeEnabled(){
-            return settings.rigType == cavernRigType;
+            return CavernOutputSettingsSO.Instance.rigType == cavernRigType;
         }
         protected virtual void SetCavernActive(){
             gameObject.SetActive(IsRigTypeEnabled());

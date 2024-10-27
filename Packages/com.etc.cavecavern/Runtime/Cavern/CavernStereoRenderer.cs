@@ -7,8 +7,6 @@ using UnityEditor;
 namespace ETC.CaveCavern {
     [RequireComponent(typeof(Camera))]
     public class CavernStereoRenderer : MonoBehaviour {
-
-        [SerializeReference] CavernRenderSettings settings;
         public bool renderStereo = true;
         
         [SerializeField] private CavernSingleCameraOutput outputCamera;
@@ -22,6 +20,7 @@ namespace ETC.CaveCavern {
         public bool debugNoStereo = false;
 
         private void Start() {
+            var settings = CavernRenderSettingsSO.Instance;
             int perEyeRes = settings.GetPerEyeRes();
             cubemapLeftEye = new RenderTexture(perEyeRes, perEyeRes, 24, RenderTextureFormat.ARGB32);
             cubemapLeftEye.dimension = TextureDimension.Cube;
@@ -54,11 +53,11 @@ namespace ETC.CaveCavern {
             }
 
             if (renderStereo) {
-                cubemapCam.stereoSeparation = debugNoStereo ? 0 : settings.stereoSeparation;
-                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapRightEye : cubemapLeftEye, settings.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Left);
-                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapLeftEye : cubemapRightEye, settings.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Right);
+                cubemapCam.stereoSeparation = debugNoStereo ? 0 : CavernRenderSettingsSO.Instance.stereoSeparation;
+                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapRightEye : cubemapLeftEye, CavernRenderSettingsSO.Instance.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Left);
+                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapLeftEye : cubemapRightEye, CavernRenderSettingsSO.Instance.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Right);
             } else {
-                cubemapCam.RenderToCubemap(cubemapLeftEye, settings.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Mono);
+                cubemapCam.RenderToCubemap(cubemapLeftEye, CavernRenderSettingsSO.Instance.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Mono);
             }
 
             if (equirect == null)

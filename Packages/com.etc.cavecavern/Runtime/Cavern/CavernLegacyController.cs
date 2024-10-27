@@ -28,9 +28,8 @@ namespace ETC.CaveCavern
 
         // Have our local values been set yet?
         private bool initialized = false;
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
             // Init local vars
             if (!initialized)
                 Initialize();

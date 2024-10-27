@@ -45,6 +45,8 @@ public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
         {
             hasBeenCreated = true;
             AddToPreloadedAssets();
+        } else{
+            ValidateInPreloadedAssets();
         }
 #endif
     }
@@ -78,6 +80,14 @@ public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
                 var path = AssetDatabase.GUIDToAssetPath(guids[0]);
                 _instance = AssetDatabase.LoadAssetAtPath<T>(path);
             }
+        }
+    }
+    // Check if asset is already in preloaded assets, if not, add it
+    public static void ValidateInPreloadedAssets(){
+        var preloadedAssets = UnityEditor.PlayerSettings.GetPreloadedAssets().ToList();
+        if(!preloadedAssets.Contains(_instance))
+        {
+            AddToPreloadedAssets();
         }
     }
 #endif

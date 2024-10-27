@@ -3,21 +3,18 @@ using UnityEngine;
 namespace ETC.CaveCavern{
     public interface INeedCavernSettings
     {
-        static CavernOutputSettings GetCavernOutputSettings(){
-            return CavernManager.Instance.Settings;
-        }
         static CavernRigType GetCavernRigType(){
-            return GetCavernOutputSettings().rigType;
+            return CavernOutputSettingsSO.Instance.rigType;
         }
         static CameraOutputMode GetCameraOutputMode(){
-            return GetCavernOutputSettings().camOutputMode;
+            return CavernOutputSettingsSO.Instance.camOutputMode;
         }
         static public Rect GetCropRect(){
-            return GetCavernOutputSettings().cropRect;
+            return CavernOutputSettingsSO.Instance.cropRect;
         }
         static public Rect GetStretchRect()
         {
-            return GetCavernOutputSettings().stretchRect;
+            return CavernOutputSettingsSO.Instance.stretchRect;
         }
     }
 }

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb8e4348190dcf49936074d74fb9046, type: 3}
+  m_Script: {fileID: 11500000, guid: a175149427f0f44818d189b1ed12e02e, type: 3}
   m_Name: CavernRenderSettings
   m_EditorClassIdentifier: 
   stereoSeparation: 0.064

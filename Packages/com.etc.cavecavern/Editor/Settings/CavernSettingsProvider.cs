@@ -19,6 +19,7 @@ namespace ETC.CaveCavern
         {
             if (!SessionState.GetBool("PreloadedAssetsInitDone", false))
             {
+                Debug.Log("PreloadedAssetsInitDone is false");
                 PlayerSettings.GetPreloadedAssets();
                 SessionState.SetBool("PreloadedAssetsInitDone", true);
             }
@@ -29,7 +30,6 @@ namespace ETC.CaveCavern
             {
                 // Doing this slightly differently, need to verify if safe
                 var renderSettings = CavernRenderSettingsSO.Instance;
-                _renderSettings = new SerializedObject(renderSettings);
 
                 if(renderSettings != null)
                 {
@@ -43,7 +43,6 @@ namespace ETC.CaveCavern
             if(_outputSettings == null)
             {
                 var outputSettings = CavernOutputSettingsSO.Instance;
-                _outputSettings = new SerializedObject(outputSettings);
 
                 if(outputSettings != null)
                 {
