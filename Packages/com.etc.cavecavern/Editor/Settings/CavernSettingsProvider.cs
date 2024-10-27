@@ -63,8 +63,8 @@ namespace ETC.CaveCavern
 
             bool isUnlocked = AssetDatabase.IsOpenForEdit(_SettingsPath, StatusQueryOptions.ForceUpdate);
             
-            IsGraphicsFoldoutOpen = EditorGUILayout.BeginFoldoutHeaderGroup(IsGraphicsFoldoutOpen, "Graphics", foldoutStyle);
-            if(IsGraphicsFoldoutOpen)
+            bool drawGraphicsFoldout = EditorGUILayout.BeginFoldoutHeaderGroup(IsGraphicsFoldoutOpen, "Graphics", foldoutStyle);
+            if(drawGraphicsFoldout)
             {
                 DrawGraphicsSettings(isUnlocked);
             }

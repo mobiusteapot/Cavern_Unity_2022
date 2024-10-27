@@ -5,13 +5,12 @@ using UnityEditor;
 namespace ETC.CaveCavern {
     [InitializeOnLoad]
     public static class CavernSampleImportSetup {
-        // private bool IsGraphicsFoldoutOpen {
-        //     get => EditorPrefs.GetBool("Cavern_GraphicsFoldout", true);
-        //     set => EditorPrefs.SetBool("Cavern_GraphicsFoldout", value);
-        // }
+        // Note: On domain reload, is not re-checking if should be validated.
+        // Can cause confusing behaviour on delete and re-import of sample scene.
+        // Setting to do this once per session to enable easier debugging for end users trying to get unpredicatable behaviour resolved.
         private static bool HasSampleSceneBeenImported {
-            get => EditorPrefs.GetBool("Cavern_SampleSceneImported", false);
-            set => EditorPrefs.SetBool("Cavern_SampleSceneImported", value);
+            get => SessionState.GetBool("Cavern_SampleSceneImported", false);
+            set => SessionState.SetBool("Cavern_SampleSceneImported", value);
         }
         // Check for any instances of scriptable objects that inherit from SettingsSOSingleton<T> in the project and call ValidateInPreloadedAssets on them
         static CavernSampleImportSetup()

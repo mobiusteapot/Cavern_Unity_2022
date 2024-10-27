@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8568210103305380079}
-  - component: {fileID: 5922535277296486670}
   m_Layer: 0
   m_Name: CavernManager
   m_TagString: Untagged
@@ -32,19 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8279436997503223965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5922535277296486670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3546159693520041096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10cecb0231e1fe4196f3e5781d5c3bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Settings>k__BackingField: {fileID: 11400000, guid: 5fae27b6b11a4a59b7ca94b3079d14de, type: 2}
 --- !u!1 &5449539091207475396
 GameObject:
   m_ObjectHideFlags: 0
