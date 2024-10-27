@@ -1,10 +1,11 @@
 using UnityEngine;
 
 /// <summary>
-/// Inherit from this base class to create a singleton.
-/// e.g. public class MyClassName : Singleton<MyClassName> {}
+/// Inherit from this base class to create a singleton 
+/// with access to default Unity MonoBehaviour methods (Start, Update, etc).
+/// e.g. public class MyClassName : MonoBehaviourSingleton<MyClassName> {}
 /// </summary>
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
+public class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour {
     // Check to see if we're about to be destroyed.
     private static bool m_ShuttingDown = false;
     private static object m_Lock = new object();

@@ -9,7 +9,7 @@ namespace ETC.CaveCavern
     /// Each 
     /// </summary>
     [DisallowMultipleComponent]
-    public class CavernManager : Singleton<CavernManager>
+    public class CavernManager : MonoBehaviourSingleton<CavernManager>
     {
         [field: SerializeField] public CavernOutputSettings Settings { get; private set; }
         private void Awake()
