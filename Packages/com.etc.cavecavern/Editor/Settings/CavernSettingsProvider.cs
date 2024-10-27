@@ -36,7 +36,7 @@ namespace ETC.CaveCavern
                     _renderSettings = new SerializedObject(renderSettings);
                 }
                 else {
-                    Debug.LogError("CavernRenderSettingsSO.Instance is null");
+                    Debug.LogError("CavernRenderSettingsSO.Instance is null. Have you imported the sample scene, or created a CavernRenderSettingsSO?");
                     return;
                 }
             }
@@ -49,7 +49,7 @@ namespace ETC.CaveCavern
                     _outputSettings = new SerializedObject(outputSettings);
                 }
                 else {
-                    Debug.LogError("CavernOutputSettingsSO.Instance is null");
+                    Debug.LogError("CavernOutputSettingsSO.Instance is null. Have you imported the sample scene, or created a CavernOutputSettingsSO?");
                     return;
                 }
             }

@@ -50,6 +50,7 @@ public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
         }
 #endif
     }
+    // Todo: Clean up added assets on reload
 
 #if UNITY_EDITOR
     public static void AddToPreloadedAssets()
