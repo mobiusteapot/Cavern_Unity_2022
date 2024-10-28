@@ -104,7 +104,7 @@ namespace ETC.CaveCavern
             for (int i = 0; i < 4; i++)
             {
                 if (CavePlaneIDX != -1)
-                    projectionCorners[i] = CavernLegacyController.getPanelCorners(CavePlaneIDX)[i];
+                    projectionCorners[i] = CavernMultiCameraController.getPanelCorners(CavePlaneIDX)[i];
                 pointToCorners[i] = (projectionCorners[i] - transform.position) * clipPlane;
 
                 lookatDir += pointToCorners[i];

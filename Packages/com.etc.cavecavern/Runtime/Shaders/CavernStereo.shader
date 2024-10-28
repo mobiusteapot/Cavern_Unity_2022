@@ -64,7 +64,7 @@
             {
                 float2 uv;
                 // Adjust our u based on projector index
-                if (_StereoMode == 5 || _StereoMode == 3) {
+                if (_StereoMode == 5 || _StereoMode == 3 || _StereoMode == 1) {
                     uv.x = (_Rotation / 360.0 + (i.uv.x + _DisplayIdx) / (_NProjectors * 4 / 3)) % 1;
 
                     // Distortion correct

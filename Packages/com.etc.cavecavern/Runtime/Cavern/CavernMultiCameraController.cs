@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ETC.CaveCavern
 {
     // Todo: need to refactor CavernOutputController, inheriting this is unintutive
-    public class CavernLegacyController : CavernRigActivator
+    public class CavernMultiCameraController : CavernRigActivator
     {
         protected override CavernRigType cavernRigType => CavernRigType.MultiCamera;
         [Tooltip("Cave Radius in Meters")]
@@ -24,7 +24,7 @@ namespace ETC.CaveCavern
         public float angle = 270;
 
         // Singleton pattern
-        public static CavernLegacyController singleton { get; private set; }
+        public static CavernMultiCameraController singleton { get; private set; }
 
         // Have our local values been set yet?
         private bool initialized = false;
@@ -62,10 +62,10 @@ namespace ETC.CaveCavern
         {
             Vector3[] corners = new Vector3[4];
 
-            Vector3 blDir = Quaternion.AngleAxis(360 * index / resolution, transform.up) * transform.forward;
-            Vector3 bl = transform.position + blDir.normalized * radius + transform.up * elevation;
-            Vector3 brDir = Quaternion.AngleAxis(360 * (index+1) / resolution, transform.up) * transform.forward;
-            Vector3 br = transform.position + brDir.normalized * radius + transform.up * elevation;
+            Vector3 blDir = Quaternion.AngleAxis(360 * index / resolution, Vector3.up) * Vector3.forward;
+            Vector3 bl = transform.position + blDir.normalized * radius + Vector3.up * elevation;
+            Vector3 brDir = Quaternion.AngleAxis(360 * (index+1) / resolution, Vector3.up) * Vector3.forward;
+            Vector3 br = transform.position + brDir.normalized * radius + Vector3.up * elevation;
 
             corners[0] = bl + transform.up * height;
             corners[1] = br + transform.up * height;
@@ -126,8 +126,13 @@ namespace ETC.CaveCavern
             Gizmos.color = Color.green;
 
             for (int i = 0; i < resolution * angle / 360; i++)
-            {
+            {                
                 Vector3[] corners = GetPanelCorners(i);
+
+                for (int j = 0; j < corners.Length; j++)
+                {
+                    corners[j] = transform.position + transform.rotation * (corners[j] - transform.position);
+                }
                 Gizmos.DrawLine(corners[0], corners[1]);
                 Gizmos.DrawLine(corners[1], corners[3]);
                 Gizmos.DrawLine(corners[3], corners[2]);

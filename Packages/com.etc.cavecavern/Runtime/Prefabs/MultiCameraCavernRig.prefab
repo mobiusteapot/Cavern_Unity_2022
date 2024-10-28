@@ -168,7 +168,6 @@ GameObject:
   - component: {fileID: 7707951894232590993}
   - component: {fileID: 7310444387977234382}
   - component: {fileID: 4290594349719684165}
-  - component: {fileID: 5719355980999374775}
   m_Layer: 24
   m_Name: Quad
   m_TagString: Untagged
@@ -219,7 +218,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c424ddf081f04f64f81729049a87beaf, type: 2}
+  - {fileID: 2100000, guid: c4f9c8730fae47759dcc559d75252cd4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -241,28 +240,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5719355980999374775
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2919869634209650086}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4280547999248049237
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +250,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1908371825833069231}
   - component: {fileID: 4320946630772699105}
-  - component: {fileID: 891401839651771530}
   m_Layer: 0
   m_Name: Cavern Object
   m_TagString: Untagged
@@ -312,22 +288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayCount: 1
---- !u!114 &891401839651771530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4280547999248049237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a6a28cf79a01a4c9a9b6af4005bc38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  example: {fileID: 0}
-  copyX: 0
-  copyY: 0
-  copyZ: 0
 --- !u!1 &5006707694399490762
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +362,7 @@ GameObject:
   - component: {fileID: 1876739953542494707}
   - component: {fileID: 4140627022158244112}
   - component: {fileID: 8776863576923901432}
+  - component: {fileID: 9219530826806618156}
   m_Layer: 24
   m_Name: Display Out
   m_TagString: Untagged
@@ -417,14 +378,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5774613799461765155}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000003909704, y: -0.7071068, z: 0.7071068, w: 0.00000040978193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -99.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7707951894232590993}
   m_Father: {fileID: 1908371825833069231}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4140627022158244112
 Camera:
   m_ObjectHideFlags: 0
@@ -490,6 +451,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RI: {fileID: 0}
   MR: {fileID: 4290594349719684165}
+--- !u!114 &9219530826806618156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5774613799461765155}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f34dc526f35a4d439c052cac750393e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCamera: {fileID: 0}
 --- !u!1 &7954326852094712593
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +554,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 7991
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 7
@@ -732,7 +706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -740,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalRotation.z
@@ -752,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -761,7 +735,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bdc06d1cc8b9b9a488f69e03fc062ff3, type: 2}
+      objectReference: {fileID: 2100000, guid: 291390750d3d44579c0dde59fe716324, type: 2}
     - target: {fileID: 919132149155446097, guid: 8192f47b1fdfa854b848532e7552128b, type: 3}
       propertyPath: m_Name
       value: Emulator + Rotator (Put on Invisible Layer)
@@ -817,15 +791,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7849968803755682078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20a6a28cf79a01a4c9a9b6af4005bc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  example: {fileID: 5006707694399490760}
-  copyX: 0
-  copyY: 1
-  copyZ: 0
+  Example: {fileID: 0}
+  CopyX: 0
+  CopyY: 1
+  CopyZ: 0
+  Local: 0
+  Inverse: 0
+  Offset: {x: 0, y: 0, z: 0}
+  OffsetX: 0
+  OffsetY: 1
+  OffsetZ: 0
 --- !u!114 &1857495769361813837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,7 +813,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7849968803755682078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9ace72e2cc7f1348b0b3b8e22568114, type: 3}
   m_Name: 

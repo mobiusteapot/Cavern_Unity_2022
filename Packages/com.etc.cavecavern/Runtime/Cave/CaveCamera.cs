@@ -81,7 +81,7 @@ namespace ETC.CaveCavern
             DeleteCameras();
 
             // Setup our output frame
-            outFrame = new RenderTexture(panelResolution.x * CavernLegacyController.panelCount(), panelResolution.y * 2, 24);
+            outFrame = new RenderTexture(panelResolution.x * CavernMultiCameraController.panelCount(), panelResolution.y * 2, 24);
             RenderCam.SetTexture(outFrame);
 
             // First left, then right eye cameras
@@ -89,10 +89,10 @@ namespace ETC.CaveCavern
             {
 
                 // Create a camera for each plane of our cave controls
-                for (int i = 0; i < CavernLegacyController.panelCount(); i++)
+                for (int i = 0; i < CavernMultiCameraController.panelCount(); i++)
                 {
                     // Get panel position
-                    Vector3[] panelCorners = CavernLegacyController.getPanelCorners(i);
+                    Vector3[] panelCorners = CavernMultiCameraController.getPanelCorners(i);
 
                     // Camera orientation depends on the mode
                     GameObject cam = new GameObject("Sub Camera");
@@ -111,13 +111,13 @@ namespace ETC.CaveCavern
                     cam.transform.parent = transform.parent;
 
                     // Rotate to face the plane
-                    var rotAmount = (-0.5f * (CavernLegacyController.panelCount360() - 3) + i - 1) * 2 * Mathf.PI / CavernLegacyController.panelCount360();
+                    var rotAmount = (-0.5f * (CavernMultiCameraController.panelCount360() - 3) + i - 1) * 2 * Mathf.PI / CavernMultiCameraController.panelCount360();
                     cam.transform.Rotate(transform.up, rotAmount * Mathf.Rad2Deg, Space.Self);
 
                     // Move to the side by IPD, keeping tangential to the inner circle
                     if (renderMode == RENDER_MODE.ODS)
                     {
-                        float tangentAngle = CavernLegacyController.singleton.radius * Mathf.Sin(Mathf.Sqrt(Mathf.Pow(IPD / 2, 2) * Mathf.Pow(CavernLegacyController.singleton.radius, 2)));
+                        float tangentAngle = CavernMultiCameraController.singleton.radius * Mathf.Sin(Mathf.Sqrt(Mathf.Pow(IPD / 2, 2) * Mathf.Pow(CavernMultiCameraController.singleton.radius, 2)));
                         Vector3 tangentPos = Quaternion.AngleAxis(tangentAngle * Mathf.Rad2Deg, cam.transform.up * eye) * cam.transform.forward;
                         cam.transform.position = transform.position + tangentPos.normalized * IPD / 2000f;
                     }
@@ -147,15 +147,15 @@ namespace ETC.CaveCavern
 
             // Vector2 scale = new Vector2(1f/CaveControls.panelCount360(), 0.5f);
             // Vector2 scale = new Vector2(0.1f, 0.1f);
-            Vector2 scale = new Vector2(CavernLegacyController.panelCount(), 2f);
+            Vector2 scale = new Vector2(CavernMultiCameraController.panelCount(), 2f);
 
             // First top, then bottom
             for (int i = 0; i < 2; i++)
             {
                 // Left to right
-                for (int j = 0; j < CavernLegacyController.panelCount(); j++)
+                for (int j = 0; j < CavernMultiCameraController.panelCount(); j++)
                 {
-                    Graphics.CopyTexture(cameraOutputTextures[i * CavernLegacyController.panelCount() + j], 0, 0, 0, 0, panelResolution.x, panelResolution.y, outFrame, 0, 0, j * panelResolution.x, i * panelResolution.y);
+                    Graphics.CopyTexture(cameraOutputTextures[i * CavernMultiCameraController.panelCount() + j], 0, 0, 0, 0, panelResolution.x, panelResolution.y, outFrame, 0, 0, j * panelResolution.x, i * panelResolution.y);
                 }
             }
         }

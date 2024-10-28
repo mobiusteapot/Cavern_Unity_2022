@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3546159693520041096
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8568210103305380079}
-  m_Layer: 0
-  m_Name: CavernManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8568210103305380079
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3546159693520041096}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8279436997503223965}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5449539091207475396
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +127,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8568210103305380079}
   - {fileID: 4711349127305492805}
   - {fileID: 1665900857583642270}
   - {fileID: 6964149012038174052}
@@ -342,10 +310,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8279436997503223965}
     m_Modifications:
-    - target: {fileID: 4290594349719684165, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c4f9c8730fae47759dcc559d75252cd4, type: 2}
     - target: {fileID: 5006707694399490760, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -390,10 +354,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegacyCavernRig
       objectReference: {fileID: 0}
-    - target: {fileID: 8642492867202173131, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 291390750d3d44579c0dde59fe716324, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -455,7 +415,7 @@ PrefabInstance:
     - target: {fileID: 3527235051349581617, guid: 589c072d2f36c8442924ad6c7efcaab3, type: 3}
       propertyPath: settings
       value: 
-      objectReference: {fileID: 11400000, guid: 51c5781c64614ac6b03c89da146fabf0, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3527235051349581617, guid: 589c072d2f36c8442924ad6c7efcaab3, type: 3}
       propertyPath: outputCamera
       value: 
@@ -471,6 +431,10 @@ PrefabInstance:
     - target: {fileID: 5256199345376465396, guid: 589c072d2f36c8442924ad6c7efcaab3, type: 3}
       propertyPath: m_Name
       value: NewCavernRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256199345376465396, guid: 589c072d2f36c8442924ad6c7efcaab3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
