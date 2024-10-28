@@ -11,7 +11,7 @@ namespace ETC.CaveCavern{
             SetCavernActive();
         }
         protected bool IsRigTypeEnabled(){
-            return CavernOutputSettingsSO.Instance.rigType == cavernRigType;
+            return CavernOutputSettings.Instance.rigType == cavernRigType;
         }
         protected virtual void SetCavernActive(){
             gameObject.SetActive(IsRigTypeEnabled());

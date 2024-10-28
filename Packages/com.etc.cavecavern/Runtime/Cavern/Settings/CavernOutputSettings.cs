@@ -2,8 +2,7 @@ using UnityEngine;
 namespace ETC.CaveCavern
 {
     [CreateAssetMenu(fileName = "CavernOutputSettings", menuName = "Cavern/CavernOutputSettings")]
-    // Rename is temp
-    public class CavernOutputSettingsSO : SettingsSOSingleton<CavernOutputSettingsSO>
+    public class CavernOutputSettings : SettingsSOSingleton<CavernOutputSettings>
     {
         [Header("Rig Type")]
         public CavernRigType rigType = CavernRigType.SingleCamera;

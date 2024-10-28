@@ -4,17 +4,17 @@ namespace ETC.CaveCavern{
     public interface INeedCavernSettings
     {
         static CavernRigType GetCavernRigType(){
-            return CavernOutputSettingsSO.Instance.rigType;
+            return CavernOutputSettings.Instance.rigType;
         }
         static CameraOutputMode GetCameraOutputMode(){
-            return CavernOutputSettingsSO.Instance.camOutputMode;
+            return CavernOutputSettings.Instance.camOutputMode;
         }
         static public Rect GetCropRect(){
-            return CavernOutputSettingsSO.Instance.cropRect;
+            return CavernOutputSettings.Instance.cropRect;
         }
         static public Rect GetStretchRect()
         {
-            return CavernOutputSettingsSO.Instance.stretchRect;
+            return CavernOutputSettings.Instance.stretchRect;
         }
     }
 }

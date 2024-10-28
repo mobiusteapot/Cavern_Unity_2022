@@ -29,7 +29,7 @@ namespace ETC.CaveCavern
             if (_renderSettings == null)
             {
                 // Doing this slightly differently, need to verify if safe
-                var renderSettings = CavernRenderSettingsSO.Instance;
+                var renderSettings = CavernRenderSettings.Instance;
 
                 if(renderSettings != null)
                 {
@@ -42,7 +42,7 @@ namespace ETC.CaveCavern
             }
             if(_outputSettings == null)
             {
-                var outputSettings = CavernOutputSettingsSO.Instance;
+                var outputSettings = CavernOutputSettings.Instance;
 
                 if(outputSettings != null)
                 {

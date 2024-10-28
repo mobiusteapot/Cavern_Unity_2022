@@ -12,7 +12,7 @@ namespace ETC.CaveCavern {
                 base.Start();
                 return;
             }
-            var settings = CavernOutputSettingsSO.Instance;
+            var settings = CavernOutputSettings.Instance;
             if(settings.camOutputMode == CameraOutputMode.SingleDisplay){
                 cavernSingleCameraOutput.gameObject.SetActive(true);
                 cavernMultiCameraOutput.gameObject.SetActive(false);

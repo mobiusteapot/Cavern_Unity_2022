@@ -20,7 +20,7 @@ namespace ETC.CaveCavern {
         public bool debugNoStereo = false;
 
         private void Start() {
-            var settings = CavernRenderSettingsSO.Instance;
+            var settings = CavernRenderSettings.Instance;
             int perEyeRes = settings.GetPerEyeRes();
             cubemapLeftEye = new RenderTexture(perEyeRes, perEyeRes, 24, RenderTextureFormat.ARGB32);
             cubemapLeftEye.dimension = TextureDimension.Cube;
@@ -53,11 +53,11 @@ namespace ETC.CaveCavern {
             }
 
             if (renderStereo) {
-                cubemapCam.stereoSeparation = debugNoStereo ? 0 : CavernRenderSettingsSO.Instance.stereoSeparation;
-                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapRightEye : cubemapLeftEye, CavernRenderSettingsSO.Instance.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Left);
-                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapLeftEye : cubemapRightEye, CavernRenderSettingsSO.Instance.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Right);
+                cubemapCam.stereoSeparation = debugNoStereo ? 0 : CavernRenderSettings.Instance.stereoSeparation;
+                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapRightEye : cubemapLeftEye, CavernRenderSettings.Instance.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Left);
+                cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapLeftEye : cubemapRightEye, CavernRenderSettings.Instance.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Right);
             } else {
-                cubemapCam.RenderToCubemap(cubemapLeftEye, CavernRenderSettingsSO.Instance.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Mono);
+                cubemapCam.RenderToCubemap(cubemapLeftEye, CavernRenderSettings.Instance.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Mono);
             }
 
             if (equirect == null)

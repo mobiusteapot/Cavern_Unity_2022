@@ -2,9 +2,7 @@ using UnityEngine;
 namespace ETC.CaveCavern
 {
     [CreateAssetMenu(fileName = "CavernRenderSettings", menuName = "Cavern/CavernRenderSettings")]
-    // Rename is temp
-
-    public class CavernRenderSettingsSO : SettingsSOSingleton<CavernRenderSettingsSO>
+    public class CavernRenderSettings : SettingsSOSingleton<CavernRenderSettings>
     {
 
         [Header("IPD in meters")]
