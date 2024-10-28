@@ -6,7 +6,7 @@ using UnityEditor;
 
 namespace ETC.CaveCavern {
     [RequireComponent(typeof(Camera))]
-    public class CavernStereoRenderer : MonoBehaviour {
+    public class SingleCameraStereoRenderer : MonoBehaviour {
         public bool renderStereo = true;
         
         [SerializeField] private CavernSingleCameraOutput outputCamera;
@@ -72,7 +72,7 @@ namespace ETC.CaveCavern {
         }
     }
 #if UNITY_EDITOR
-    [CustomEditor(typeof(CavernStereoRenderer))]
+    [CustomEditor(typeof(SingleCameraStereoRenderer))]
     public class CavernStereoRendererEditor : Editor {
         SerializedProperty cubemapLeftEye;
         SerializedProperty cubemapRightEye;

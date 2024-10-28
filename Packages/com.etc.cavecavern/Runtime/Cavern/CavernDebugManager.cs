@@ -10,7 +10,7 @@ namespace ETC.CaveCavern {
     public class CavernDebugManager : MonoBehaviour
     {
 #if UNITY_EDITOR
-        [SerializeField] private CavernStereoRenderer cavernStereoRenderer;
+        [SerializeField] private SingleCameraStereoRenderer cavernStereoRenderer;
         [SerializeField] private CavernSingleCameraOutput cavernOutputCamera;
         private bool isMissingReference;
         private void Awake() {

@@ -7,7 +7,6 @@ namespace ETC.CaveCavern
     {
         private const string _SettingsPath = "ProjectSettings/CavernSettings.asset";
         private SerializedObject _renderSettings;
-        private SerializedObject _outputSettings;
         public CavernSettingsProvider(string path, SettingsScope scope = SettingsScope.Project) : base(path, scope) { }
 
         private bool IsGraphicsFoldoutOpen {
@@ -19,7 +18,6 @@ namespace ETC.CaveCavern
         {
             if (!SessionState.GetBool("PreloadedAssetsInitDone", false))
             {
-                Debug.Log("PreloadedAssetsInitDone is false");
                 PlayerSettings.GetPreloadedAssets();
                 SessionState.SetBool("PreloadedAssetsInitDone", true);
             }
@@ -34,23 +32,6 @@ namespace ETC.CaveCavern
                 if(renderSettings != null)
                 {
                     _renderSettings = new SerializedObject(renderSettings);
-                }
-                else {
-                    Debug.LogError("CavernRenderSettingsSO.Instance is null. Have you imported the sample scene, or created a CavernRenderSettingsSO?");
-                    return;
-                }
-            }
-            if(_outputSettings == null)
-            {
-                var outputSettings = CavernOutputSettings.Instance;
-
-                if(outputSettings != null)
-                {
-                    _outputSettings = new SerializedObject(outputSettings);
-                }
-                else {
-                    Debug.LogError("CavernOutputSettingsSO.Instance is null. Have you imported the sample scene, or created a CavernOutputSettingsSO?");
-                    return;
                 }
             }
 
@@ -84,34 +65,28 @@ namespace ETC.CaveCavern
                 using (new EditorGUI.DisabledScope(!isUnlocked))
                 {
                     EditorGUILayout.LabelField("Render Settings", EditorStyles.boldLabel);
-                    using (var renederSettingsCheck = new EditorGUI.ChangeCheckScope())
+                    // if _renderSettings is not null, draw
+                    // Else, display an error message with an option to create a new CavernRenderSettingsSO under Assets/Settings
+                    if(_renderSettings == null)
                     {
-                        _renderSettings.Update();
-                        EditorGUILayout.PropertyField(_renderSettings.FindProperty("stereoSeparation"));
-                        EditorGUILayout.PropertyField(_renderSettings.FindProperty("cubemapRenderMask"));
-                        EditorGUILayout.PropertyField(_renderSettings.FindProperty("perEyeRes"));
-                        EditorGUILayout.PropertyField(_renderSettings.FindPropertyByAutoPropertyName("OutputWidth"));
-                        EditorGUILayout.PropertyField(_renderSettings.FindPropertyByAutoPropertyName("OutputHeight"));
-                        if (renederSettingsCheck.changed)
+                        using (new EditorGUILayout.VerticalScope("box"))
                         {
-                            _renderSettings.ApplyModifiedProperties();
+                            EditorGUILayout.HelpBox("CavernRenderSettings is missing.\n"
+                                + "Please import a sample scene from the Cave/Cavern package in the package manager, "
+                                + "or create a new asset.", MessageType.Error);
+                            if(GUILayout.Button("Create New CavernRenderSettings"))
+                            {
+                                if(!AssetDatabase.IsValidFolder("Assets/Settings"))
+                                {
+                                    AssetDatabase.CreateFolder("Assets", "Settings");
+                                }
+                                AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<CavernRenderSettings>(), "Assets/Settings/CavernRenderSettings.asset");
+                            }
                         }
                     }
-
-                    EditorGUILayout.Space();
-
-                    EditorGUILayout.LabelField("Output Settings", EditorStyles.boldLabel);
-                    using (var outputSettingsCheck = new EditorGUI.ChangeCheckScope())
+                    else
                     {
-                        _outputSettings.Update();
-                        EditorGUILayout.PropertyField(_outputSettings.FindProperty("rigType"));
-                        EditorGUILayout.PropertyField(_outputSettings.FindProperty("camOutputMode"));
-                        EditorGUILayout.PropertyField(_outputSettings.FindProperty("cropRect"));
-                        EditorGUILayout.PropertyField(_outputSettings.FindProperty("stretchRect"));
-                        if (outputSettingsCheck.changed)
-                        {
-                            _outputSettings.ApplyModifiedProperties();
-                        }
+                        Editor.CreateEditor(_renderSettings.targetObject).OnInspectorGUI();
                     }
                 }
             }
