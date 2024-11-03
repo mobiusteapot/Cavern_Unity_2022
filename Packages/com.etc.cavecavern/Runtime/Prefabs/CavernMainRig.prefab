@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8279436997503223965}
   m_Layer: 0
-  m_Name: CavernRigs
+  m_Name: CavernMainRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5006707694399490762, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
       propertyPath: m_Name
-      value: LegacyCavernRig
+      value: MultiCameraCavernRig
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -430,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 8799818652246267239}
     - target: {fileID: 5256199345376465396, guid: 589c072d2f36c8442924ad6c7efcaab3, type: 3}
       propertyPath: m_Name
-      value: NewCavernRig
+      value: SingleCameraCavernRig
       objectReference: {fileID: 0}
     - target: {fileID: 5256199345376465396, guid: 589c072d2f36c8442924ad6c7efcaab3, type: 3}
       propertyPath: m_IsActive
