@@ -4,12 +4,14 @@ namespace ETC.CaveCavern
     [CreateAssetMenu(fileName = "CavernRenderSettings", menuName = "Cavern/CavernRenderSettings")]
     public class CavernRenderSettings : SettingsSOSingleton<CavernRenderSettings>
     {
+        // Todo: Getters + make all fields private
         [Header("IPD in meters")]
         public float stereoSeparation = 0.064f;
         [Header("Rig Type")]
         public CavernRigType rigType;
         [Header("Display Render Mode")]
         public CameraOutputMode camOutputMode;
+        public StereoMode stereoMode;
         public Rect cropRect;
         public Rect stretchRect;
 
@@ -24,6 +26,7 @@ namespace ETC.CaveCavern
         public void Reset()
         {
             rigType = CavernRigType.MultiCamera;
+            stereoMode = StereoMode.TopBottom;
             camOutputMode = CameraOutputMode.SingleDisplay;
 
             cropRect.height = 1;
@@ -34,13 +37,17 @@ namespace ETC.CaveCavern
             OutputHeight = 1080;
         }
 
-        public int GetPerEyeRes()
+        public static int GetPerEyeRes()
         {
-            return (int)perEyeRes;
+            return (int)Instance.perEyeRes;
         }
-        public int GetCubemapMask()
+        public static int GetCubemapMask()
         {
-            return (int)cubemapRenderMask;
+            return (int)Instance.cubemapRenderMask;
+        }
+        public static StereoMode GetStereoMode()
+        {
+            return Instance.stereoMode;
         }
     }
 }

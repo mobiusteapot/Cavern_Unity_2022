@@ -17,8 +17,7 @@ namespace ETC.CaveCavern{
         protected bool IsRigTypeEnabled(){
             var crs = CavernRenderSettings.Instance;
             if(crs == null){
-                Debug.LogError("CavernRenderSettings not found. "
-                + "Please create a CavernRenderSettings asset in your asset browser, or via the Cavern section in project settings.");
+                Debug.LogError(CavernDebug.NoRenderSettingsFound);
                 return false;
             }
             return CavernRenderSettings.Instance.rigType == cavernRigType;

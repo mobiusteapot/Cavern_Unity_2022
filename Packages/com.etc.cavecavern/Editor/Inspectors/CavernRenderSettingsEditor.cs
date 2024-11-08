@@ -9,6 +9,7 @@ namespace ETC.CaveCavern {
         private SerializedProperty stereoSeparation;
         private SerializedProperty rigType;
         private SerializedProperty camOutputMode;
+        private SerializedProperty stereoMode;
         private SerializedProperty cropRect;
         private SerializedProperty stretchRect;
         private SerializedProperty cubemapRenderMask;
@@ -19,6 +20,7 @@ namespace ETC.CaveCavern {
             stereoSeparation = serializedObject.FindProperty("stereoSeparation");
             rigType = serializedObject.FindProperty("rigType");
             camOutputMode = serializedObject.FindProperty("camOutputMode");
+            stereoMode = serializedObject.FindProperty("stereoMode");
             cropRect = serializedObject.FindProperty("cropRect");
             stretchRect = serializedObject.FindProperty("stretchRect");
             cubemapRenderMask = serializedObject.FindProperty("cubemapRenderMask");
@@ -30,6 +32,7 @@ namespace ETC.CaveCavern {
             serializedObject.Update();
             EditorGUILayout.PropertyField(stereoSeparation);
             EditorGUILayout.PropertyField(rigType);
+            EditorGUILayout.PropertyField(stereoMode);
             // If rigType is singleCamera, draw the following properties
             if(rigType.enumValueIndex == (int)CavernRigType.SingleCamera) {
                 EditorGUILayout.PropertyField(cropRect);

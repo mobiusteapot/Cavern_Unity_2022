@@ -27,6 +27,11 @@ namespace ETC.CaveCavern
 
             instance.name = "Cavern Main Rig";
             Selection.activeGameObject = instance;
+
+            // Check for CavernRenderSettings singleton asset
+            if(CavernRenderSettings.Instance == null){
+                Debug.LogWarning(CavernDebug.NoRenderSettingsFound);            
+            }
         }
     }
 }

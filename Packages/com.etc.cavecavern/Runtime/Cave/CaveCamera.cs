@@ -10,12 +10,14 @@ namespace ETC.CaveCavern
     {
         // Consts and enums
         [System.Serializable]
-        public enum RENDER_MODE { HEAD_TRACKED, ODS, FLAT}
+        public enum RENDER_MODE { HEAD_TRACKED, ODS, FLAT }
 
         // Public variables
         [HideInInspector]
         [SerializeField]
         public RENDER_MODE renderMode;
+        [SerializeField]
+        private CavernSingleCameraOutput outputCamera;
 
         [Tooltip("The distance between the pupils in milimeters")]
         public float IPD = 63f;
@@ -62,7 +64,7 @@ namespace ETC.CaveCavern
         private void DeleteCameras()
         {
             // Necesarry for edit mode execution
-            if (caveCameras == null)
+            if (caveCameras == null || caveCameras.Count == 0)
                 return;
 
             // Remove every camera in our list
@@ -82,7 +84,9 @@ namespace ETC.CaveCavern
 
             // Setup our output frame
             outFrame = new RenderTexture(panelResolution.x * CavernMultiCameraController.panelCount(), panelResolution.y * 2, 24);
-            RenderCam.SetTexture(outFrame);
+            if (CavernRenderSettings.Instance.camOutputMode == CameraOutputMode.SingleDisplay) {
+                outputCamera.SetOutputRT(outFrame);
+            }
 
             // First left, then right eye cameras
             for (int eye = -1; eye <= 1; eye+=2)

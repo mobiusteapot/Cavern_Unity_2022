@@ -14,6 +14,8 @@ public class RenderCam : MonoBehaviour
 
     [Tooltip("The rendering mesh renderer")]
     public MeshRenderer MR;
+    [SerializeField]
+    private Material blitMat;
 
     void Awake()
     {
@@ -45,4 +47,35 @@ public class RenderCam : MonoBehaviour
             }
         }
     }
+
+    private void OnRenderImage(RenderTexture source, RenderTexture destination)
+        {
+            if(blitMat != null)
+            {
+                Graphics.Blit(source, destination, blitMat);
+            }
+            else
+            {
+                Graphics.Blit(source, destination);
+            }
+            // RenderTexture temp = RenderTexture.GetTemporary(source.width, source.height, 0, source.format);
+            // Graphics.Blit(source, temp);
+
+            // Graphics.SetRenderTarget(temp);
+            // GL.PushMatrix();
+            // // Load orthographic projection for full-screen quad
+            // GL.LoadOrtho(); 
+
+            // DrawTexture(RI, 0, 0.5f, 1, 0.5f);
+
+            // GL.PopMatrix();
+
+            // Graphics.Blit(temp, destination);
+            // RenderTexture.ReleaseTemporary(temp);
+        }
+
+        private void DrawTexture(RenderTexture texture, float x, float y, float width, float height)
+        {
+            Graphics.DrawTexture(new Rect(x, y + height, width, -height), texture);
+        }
 }

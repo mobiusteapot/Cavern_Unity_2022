@@ -32,6 +32,6 @@ Material:
     - _DisplayIdx: 0
     - _NPanels: 32
     - _NProjectors: 1
-    - _StereoMode: 1
+    - _StereoMode: 0
     m_Colors: []
   m_BuildTextureStacks: []

@@ -1,6 +1,7 @@
 using UnityEngine;
 
 namespace ETC.CaveCavern{
+    // Todo: Probably depricate this interface
     public interface INeedCavernSettings
     {
         static CavernRigType GetCavernRigType(){
