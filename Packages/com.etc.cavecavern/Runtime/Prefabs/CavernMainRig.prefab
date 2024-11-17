@@ -354,6 +354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MultiCameraCavernRig
       objectReference: {fileID: 0}
+    - target: {fileID: 8776863576923901432, guid: 4fdc2e2aa190f024fb0e8b02a82dec61, type: 3}
+      propertyPath: blitMat
+      value: 
+      objectReference: {fileID: 2100000, guid: c4f9c8730fae47759dcc559d75252cd4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
