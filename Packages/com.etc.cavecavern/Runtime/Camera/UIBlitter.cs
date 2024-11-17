@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace ETC.CaveCavern
 {
@@ -9,12 +10,8 @@ namespace ETC.CaveCavern
     {
         // Todo: URP support
         public UICamera uiCamera;
-        private void OnRenderImage(RenderTexture source, RenderTexture destination)
+        private void OnPostRender()
         {
-            RenderTexture temp = RenderTexture.GetTemporary(source.width, source.height, 0, source.format);
-            Graphics.Blit(source, temp);
-
-            Graphics.SetRenderTarget(temp);
             GL.PushMatrix();
             // Load orthographic projection for full-screen quad
             GL.LoadOrtho(); 
@@ -23,9 +20,6 @@ namespace ETC.CaveCavern
             DrawTexture(uiCamera.RT, 0, 0, 1, 0.5f);
 
             GL.PopMatrix();
-
-            Graphics.Blit(temp, destination);
-            RenderTexture.ReleaseTemporary(temp);
         }
 
         private void DrawTexture(RenderTexture texture, float x, float y, float width, float height)
@@ -33,5 +27,4 @@ namespace ETC.CaveCavern
             Graphics.DrawTexture(new Rect(x, y + height, width, -height), texture);
         }
     }
-
 }
