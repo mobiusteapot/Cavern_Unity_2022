@@ -107,6 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8279436997503223965}
+  - component: {fileID: 8483721147686808357}
   m_Layer: 0
   m_Name: CavernMainRig
   m_TagString: Untagged
@@ -133,6 +134,20 @@ Transform:
   - {fileID: 7308654577296473372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8483721147686808357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6792222714429626492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba25ba322b7e6234ea25fe92edc87b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cavernStereoRenderer: {fileID: 6666732194125890409}
+  cavernOutputCamera: {fileID: 8799818652246267239}
 --- !u!1 &7961668771134772069
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +460,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 589c072d2f36c8442924ad6c7efcaab3, type: 3}
+--- !u!114 &6666732194125890409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3527235051349581617, guid: 589c072d2f36c8442924ad6c7efcaab3, type: 3}
+  m_PrefabInstance: {fileID: 7815922440222497880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8564654899ade41a23369d361d434b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6964149012038174052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 923832400639367484, guid: 589c072d2f36c8442924ad6c7efcaab3, type: 3}

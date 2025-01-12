@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace ETC.CaveCavern
 {
+    /// <summary>
+    /// Initialized and controls rendering for the multi-camera Cavern rig
+    /// </summary>
+    // Todo: Rename to something like CavernMultiCameraController
     [RequireComponent(typeof(Camera))]
     public class CaveCamera : MonoBehaviour
     {
@@ -82,7 +86,7 @@ namespace ETC.CaveCavern
 
             // Setup our output frame
             outFrame = new RenderTexture(panelResolution.x * CavernMultiCameraController.panelCount(), panelResolution.y * 2, 24);
-            RenderCam.SetTexture(outFrame);
+            MultiRigRenderCam.SetTexture(outFrame);
 
             // First left, then right eye cameras
             for (int eye = -1; eye <= 1; eye+=2)

@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace ETC.CaveCavern
 {
+    /// <summary>
+    /// Individual cameras used by the Cavern multi-camera rig. Generated and controlled by the <see cref="CaveCamera"/>
+    /// </summary>
     [RequireComponent(typeof(Camera))]
     public class OffAxisCam : MonoBehaviour
     {
@@ -137,7 +140,7 @@ namespace ETC.CaveCavern
 
         }
 
-        // Start is called before the first frame update
+
         void Awake()
         {
             if (!initialized)
@@ -158,7 +161,6 @@ namespace ETC.CaveCavern
             cam = GetComponent<Camera>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             // Ensure the camera's facing the correct direction

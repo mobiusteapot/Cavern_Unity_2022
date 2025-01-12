@@ -1,17 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ActivateDisplays : MonoBehaviour
+namespace ETC.CaveCavern
 {
-    [Tooltip("How many displays are we activating")]
-    public int displayCount = 3;
-
-    void Awake()
+    /// <summary>
+    /// For multi monitor output setups (ie, non-mosaic). Required to activate output for each monitor.
+    /// Originally intended for the CAVE
+    /// </summary>
+    public class ActivateDisplays : MonoBehaviour
     {
-        for (int i = 1; i < Display.displays.Length && i < displayCount; i++)
+        [Tooltip("How many displays are we activating")]
+        public int displayCount = 3;
+
+        void Awake()
         {
-            Display.displays[i].Activate();
+            for (int i = 1; i < Display.displays.Length && i < displayCount; i++)
+            {
+                Display.displays[i].Activate();
+            }
         }
     }
 }

@@ -7,6 +7,9 @@ using UnityEditor;
 
 // Component will be empty on build
 namespace ETC.CaveCavern {
+    /// <summary>
+    /// Controls debug-only in editor settings for Cavern.
+    /// </summary>
     public class CavernDebugManager : MonoBehaviour
     {
 #if UNITY_EDITOR

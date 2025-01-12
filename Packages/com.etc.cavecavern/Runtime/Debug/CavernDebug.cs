@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ETC.CaveCavern
 {
     /// <summary>
-    /// Holds common debug messages for the Cavern.
+    /// Utility class for throwing common debug messages
     /// </summary>
     public static class CavernDebug
     {

@@ -3,54 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Camera))]
-public class RenderCam : MonoBehaviour
+namespace ETC.CaveCavern
 {
-    // All the rendercams in our scene
-    private static List<RenderCam> allInScene;
-    
-    [Tooltip("The rendering image")]
-    public RawImage RI;
-
-    [Tooltip("The rendering mesh renderer")]
-    public MeshRenderer MR;
-    [SerializeField]
-    private Material blitMat;
-
-    void Awake()
+    /// <summary>
+    /// Todo: Redundant with final single camera?
+    /// </summary>
+    [RequireComponent(typeof(Camera))]
+    public class MultiRigRenderCam : MonoBehaviour
     {
-        // Init local vars
-        if (allInScene == null)
-            allInScene = new List<RenderCam>();
-        allInScene.Add(this);
-    }
+        // All the rendercams in our scene
+        private static List<MultiRigRenderCam> allInScene;
 
-    public static void SetTexture(RenderTexture tex)
-    {
-        foreach (RenderCam rCam in allInScene){
-            if (rCam.RI)
-                rCam.RI.texture = tex;
-            else if (rCam.MR)
+        [Tooltip("The rendering image")]
+        public RawImage RI;
+
+        [Tooltip("The rendering mesh renderer")]
+        public MeshRenderer MR;
+        [SerializeField]
+        private Material blitMat;
+
+        void Awake()
+        {
+            // Init local vars
+            if (allInScene == null)
+                allInScene = new List<MultiRigRenderCam>();
+            allInScene.Add(this);
+        }
+
+        public static void SetTexture(RenderTexture tex)
+        {
+            foreach (MultiRigRenderCam rCam in allInScene)
             {
-                rCam.MR.material.mainTexture = tex;
+                if (rCam.RI)
+                    rCam.RI.texture = tex;
+                else if (rCam.MR)
+                {
+                    rCam.MR.material.mainTexture = tex;
+                    Camera cam = rCam.GetComponent<Camera>();
 
-                Camera cam = rCam.GetComponent<Camera>();
+                    // Shouldn't need this in favor of just doing a direct blit to the screen (may need change in URP)
+                    // Align quad directly to camera
+                    float pos = (cam.nearClipPlane + 0.01f);
 
-                // Align quad directly to camera
-                float pos = (cam.nearClipPlane + 0.01f);
+                    rCam.MR.transform.position = cam.transform.position + cam.transform.forward * pos;
 
-                rCam.MR.transform.position = cam.transform.position + cam.transform.forward * pos;
+                    float h = Mathf.Tan(cam.fieldOfView * Mathf.Deg2Rad * 0.5f) * pos * 2f;
 
-                float h = Mathf.Tan(cam.fieldOfView * Mathf.Deg2Rad * 0.5f) * pos * 2f;
-
-                rCam.MR.transform.localScale = new Vector3(h * cam.aspect, h, 0f);
+                    rCam.MR.transform.localScale = new Vector3(h * cam.aspect, h, 0f);
+                }
             }
         }
-    }
 
-    private void OnRenderImage(RenderTexture source, RenderTexture destination)
+        private void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-            if(blitMat != null)
+            if (blitMat != null)
             {
                 Graphics.Blit(source, destination, blitMat);
             }
@@ -78,4 +84,5 @@ public class RenderCam : MonoBehaviour
         {
             Graphics.DrawTexture(new Rect(x, y + height, width, -height), texture);
         }
+    }
 }

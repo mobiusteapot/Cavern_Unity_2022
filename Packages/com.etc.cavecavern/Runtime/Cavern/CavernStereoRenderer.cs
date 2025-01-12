@@ -5,6 +5,9 @@ using UnityEditor;
 #endif
 
 namespace ETC.CaveCavern {
+    /// <summary>
+    /// Renders the Cavern Single Camera Rig 
+    /// </summary>
     [RequireComponent(typeof(Camera))]
     public class SingleCameraStereoRenderer : MonoBehaviour {
         public bool renderStereo = true;
@@ -15,6 +18,7 @@ namespace ETC.CaveCavern {
         [SerializeField, HideInInspector] private RenderTexture equirect;
         private Camera cubemapCam;
 
+        // Todo: Unify this with Cavern Debug Controller
         // Debug variables
         public bool debugSwapLeftRight = false;
         public bool debugNoStereo = false;
@@ -38,7 +42,7 @@ namespace ETC.CaveCavern {
             }
 
             if (GraphicsSettings.renderPipelineAsset != null) {
-                Debug.LogWarning("Cavern Rendering does not currently support a scriptable render pipeline, please use the built-in renderer!");
+                Debug.LogWarning("Cavern Single Camera Rendering does not currently support scriptable render pipelines, please use the built-in renderer!");
             }
         }
 
