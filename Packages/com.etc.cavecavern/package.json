@@ -1,7 +1,7 @@
 {
   "name": "com.etc.cavecavern",
   "displayName": "ETC - Cave and Cavern",
-  "version": "0.0.28-preview",
+  "version": "0.0.30-preview",
   "unity": "2022.3",
   "description": "Package for handling display output and common utilities for the Cave and Cavern.",
   "keywords": [
@@ -37,6 +37,6 @@
     }
   ],
   "dependencies": {
-    "com.etc.kt.core": "0.3.5-preview"
+    "com.etc.kt.core": "0.3.7-preview"
   }
 }

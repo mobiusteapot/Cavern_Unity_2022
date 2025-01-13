@@ -5,12 +5,12 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "com.etc.kt.core": "0.3.5-preview"
+        "com.etc.kt.core": "0.3.7-preview"
       }
     },
     "com.etc.kt.core": {
-      "version": "0.3.5-preview",
-      "depth": 0,
+      "version": "0.3.7-preview",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://upm.etc.cmu.edu"

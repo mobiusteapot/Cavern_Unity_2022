@@ -1,7 +1,9 @@
 {
     "name": "ETC.CaveCavern",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:a791707b69bd212489a9f4e7fc5ca1e1"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
