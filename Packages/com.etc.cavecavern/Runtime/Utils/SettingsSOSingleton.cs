@@ -1,6 +1,9 @@
 using System.Linq;
-using UnityEditor;
+
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 // Todo: Update cavern package redirect to KettleTools to a newer version 
 // and use that identical version of this script instead.
@@ -10,7 +13,7 @@ using UnityEngine;
 /// Works on both runtime and editor. Intended for settings only.
 /// </summary>
 /// <typeparam name="T"></typeparam>
- 
+
 // Execution order is set to -150 to ensure it loads before TextMeshPro things, which seems like a common usecase
 // Unsure what other complications this may cause. Would love feedback from anyone who's familiar with these systems.
 //
@@ -19,9 +22,18 @@ using UnityEngine;
 public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
 {
     public static T _instance;
+    // Loads lazily if hasn't been otherwise accessed yet. Should be initialized in OnEnable beforehand
     public static T Instance
     {
-        get {
+        get
+        {
+#if UNITY_EDITOR
+            // On runtime, should already be initialized, so this potentially expensive/frequent check can be skipped
+            if (_instance == null)
+            {
+                LoadSettings();
+            }
+#endif
             return _instance;
         }
         private set => _instance = value;
@@ -63,9 +75,8 @@ public abstract class SettingsSOSingleton<T> : ScriptableObject where T : Object
         PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
     }
     // As long as it has been added to the preloaded assets, it will be loaded on build
-    // This ensures it loads before Awake, in editor
-    // Known issue: still lost on domain reload 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
+    // Should be loaded automatically on first access, but is loaded "lazily" if not otherwise accessed.
+    // I have concerns about race conditions, but InitializeOnLoad and RuntimeInitializeOnLoad both don't work correctly with generics
     private static void LoadSettings()
     {
         if(_instance == null)
