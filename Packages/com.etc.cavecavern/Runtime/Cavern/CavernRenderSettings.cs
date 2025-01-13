@@ -1,4 +1,6 @@
 using UnityEngine;
+using Mobtp.KettleTools.Core;
+
 namespace ETC.CaveCavern
 {
     [CreateAssetMenu(fileName = "CavernRenderSettings", menuName = "Cavern/CavernRenderSettings")]
