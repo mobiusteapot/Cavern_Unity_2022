@@ -12,12 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e3382aa39c0d94e94a2f4519cc8ac8, type: 3}
   m_Name: CavernDocumentation
   m_EditorClassIdentifier: 
-  TextType: 0
-  ExternalText: {fileID: 0}
-  IsLocked: 0
+  TextType: 1
+  ExternalText: {fileID: 4900000, guid: b2c2bf735fb0c41efa841dc001e71cf7, type: 3}
+  IsLocked: 1
   Icon: {fileID: 0}
   Title: Readme
-  Sections: []
+  Sections:
+  - Heading: ' Cavern Wiki'
+    Text: '
+
+      You can access the Cavern Wiki to learn more about how the Unity
+      package works.
+
+
+'
+    LinkText: Cavern Wiki
+    Url: https://help.etc.cmu.edu/xwiki/bin/view/Technology/Platforms/CAVERN/#
+    Image: {fileID: 0}
+  - Heading: 
+    Text: '
+
+      You can also check out the sample scene in the Package Manager.
+
+'
+    LinkText: 
+    Url: 
+    Image: {fileID: 0}
   isInitalized: 1
   linkStyle:
     m_Name: ControlLabel
