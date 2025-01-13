@@ -1,7 +1,8 @@
 namespace ETC.CaveCavern
 {
-    public class CavernMultiCameraRig : CavernRigActivator
+    [System.Obsolete]
+    public class CavernMultiCameraRig : CavernRig
     {
-        protected override CavernRigType cavernRigType => CavernRigType.MultiCamera;
+        public override CavernRigType CavernRigType => CavernRigType.MultiCamera;
     }
 }

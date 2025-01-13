@@ -28,6 +28,7 @@ namespace ETC.CaveCavern {
         }
         private void Update() {
             if (isMissingReference) return;
+            // Todo: Draw these as clickable GUIs?
             if (Input.GetKeyDown(KeyCode.Z)) {
                 cavernStereoRenderer.debugSwapLeftRight = !cavernStereoRenderer.debugSwapLeftRight;
             }

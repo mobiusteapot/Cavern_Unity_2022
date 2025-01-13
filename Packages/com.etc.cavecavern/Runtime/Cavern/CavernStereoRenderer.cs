@@ -46,7 +46,7 @@ namespace ETC.CaveCavern {
             }
         }
 
-        private void LateUpdate() {
+        private void Update() {
 
             if (cubemapCam == null) {
                 cubemapCam = GetComponentInParent<Camera>();
@@ -56,7 +56,7 @@ namespace ETC.CaveCavern {
                 Debug.Log("stereo 360 capture node has no camera or parent camera");
             }
 
-            if (renderStereo) {
+            if (CavernRenderSettings.Instance.stereoMode != StereoMode.Off) {
                 cubemapCam.stereoSeparation = debugNoStereo ? 0 : CavernRenderSettings.Instance.stereoSeparation;
                 cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapRightEye : cubemapLeftEye, CavernRenderSettings.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Left);
                 cubemapCam.RenderToCubemap(debugSwapLeftRight ? cubemapLeftEye : cubemapRightEye, CavernRenderSettings.GetCubemapMask(), Camera.MonoOrStereoscopicEye.Right);
@@ -67,7 +67,7 @@ namespace ETC.CaveCavern {
             if (equirect == null)
                 return;
 
-            if (renderStereo) {
+            if (CavernRenderSettings.Instance.stereoMode != StereoMode.Off) {
                 cubemapLeftEye.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Left);
                 cubemapRightEye.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Right);
             } else {

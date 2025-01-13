@@ -31,6 +31,8 @@ namespace ETC.CaveCavern
 
             cropRect.height = 1;
             cropRect.width = 1;
+            stretchRect.width = 1;
+            stretchRect.height = 1;
             cubemapRenderMask = (CubemapRenderMask)63;
             perEyeRes = CubemapResolution.Medium;
             OutputWidth = 5720;

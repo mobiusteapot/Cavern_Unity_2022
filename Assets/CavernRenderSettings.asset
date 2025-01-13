@@ -26,9 +26,9 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0
-    height: 0
-  cubemapRenderMask: 63
+    width: 1
+    height: 1
+  cubemapRenderMask: 51
   perEyeRes: 1024
   <OutputWidth>k__BackingField: 5720
   <OutputHeight>k__BackingField: 1080

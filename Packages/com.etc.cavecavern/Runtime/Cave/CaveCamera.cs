@@ -30,8 +30,7 @@ namespace ETC.CaveCavern
         [HideInInspector]
         public Transform headTrackObject; // In head tracked mode, what transform do we bind to?
 
-        [HideInInspector]
-        public Vector2Int panelResolution = new Vector2Int(512, 2048); // The resolution of each rendered panel
+        private Vector2Int panelResolution;
 
         // All the cameras used
         private List<OffAxisCam> caveCameras;
@@ -85,7 +84,14 @@ namespace ETC.CaveCavern
             DeleteCameras();
 
             // Setup our output frame
-            outFrame = new RenderTexture(panelResolution.x * CavernMultiCameraController.panelCount(), panelResolution.y * 2, 24);
+
+            panelResolution = new Vector2Int(CavernRenderSettings.Instance.OutputWidth / CavernMultiCameraController.panelCount(), CavernRenderSettings.Instance.OutputHeight);
+            outFrame = new RenderTexture(panelResolution.x * CavernMultiCameraController.panelCount(), panelResolution.y * 2, 16);
+
+            // Potential optimization: disable depth buffer if we don't need it
+
+            // Todo: Callback for when settings are changed so this can update live in-editor
+
             MultiRigRenderCam.SetTexture(outFrame);
 
             // First left, then right eye cameras
@@ -135,7 +141,7 @@ namespace ETC.CaveCavern
                     camProjection.gizmoCol = eye == -1 ? Color.red : Color.blue;
 
                     // Set up output textures for this camera
-                    RenderTexture camOut = new RenderTexture(panelResolution.x, panelResolution.y, 24);
+                    RenderTexture camOut = new RenderTexture(panelResolution.x, panelResolution.y, 16);
                     cam.GetComponent<Camera>().targetTexture = camOut;
                     cam.GetComponent<Camera>().cullingMask = GetComponent<Camera>().cullingMask;
                     cam.GetComponent<Camera>().stereoTargetEye = GetComponent<Camera>().stereoTargetEye;

@@ -31,7 +31,12 @@ namespace ETC.CaveCavern {
         public override void OnInspectorGUI() {
             serializedObject.Update();
             EditorGUILayout.PropertyField(stereoSeparation);
-            EditorGUILayout.PropertyField(rigType);
+            // If in play mode, grey out settings that can't be updated live
+            using (var scope = new EditorGUI.DisabledGroupScope(Application.isPlaying))
+            {
+                EditorGUILayout.PropertyField(rigType);
+            }
+
             EditorGUILayout.PropertyField(stereoMode);
             // If rigType is singleCamera, draw the following properties
             if(rigType.enumValueIndex == (int)CavernRigType.SingleCamera) {

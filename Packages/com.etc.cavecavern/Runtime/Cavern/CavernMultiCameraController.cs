@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ETC.CaveCavern
 {
-    // Todo: need to refactor CavernOutputController, inheriting this is unintutive
-    public class CavernMultiCameraController : CavernRigActivator
+    
+    // Much of this class is untouched from Cavern 1.0 and a refactor would be hugely beneficial
+    public class CavernMultiCameraController : CavernRig
     {
-        protected override CavernRigType cavernRigType => CavernRigType.MultiCamera;
+        public override CavernRigType CavernRigType => CavernRigType.MultiCamera;
         [Tooltip("Cave Radius in Meters")]
         public float radius = 3;
 
@@ -22,8 +21,6 @@ namespace ETC.CaveCavern
 
         [Tooltip("How many degrees does the cylinder revolve?")]
         public float angle = 270;
-
-        // Singleton pattern
         public static CavernMultiCameraController singleton { get; private set; }
 
         // Have our local values been set yet?

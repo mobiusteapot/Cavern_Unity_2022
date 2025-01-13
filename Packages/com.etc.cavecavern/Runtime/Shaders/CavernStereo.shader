@@ -6,15 +6,15 @@
         _MainTex ("Texture", 2D) = "white" {}
         _NProjectors("Projector Count", Float) = 0
         _DisplayIdx("Display Index", Int) = 0
-       // _StereoMode("Stereo Mode (0: use VR settings, 1: TnB, 2: SbS, 3: Anaglyph, 4: VR settings + distortion correction, 5: VR settings + rotation)", Int) = 0
+       // _StereoMode("Stereo Mode (0: use VR settings, 1: TnB, 2: SbS, 3: Anaglyph, 4: VR settings + distortion correction, 5: VR settings + rotation, 6 = off)", Int) = 0
     }
     SubShader
     {
         Tags { "RenderType"="Opaque" }
         LOD 100
-        // Can I have passes for URP and BIRP in the same shader?
         Pass
         {
+            // Todo: Convert to modern HLSLPROGRAM style syntax
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -23,7 +23,6 @@
 
             // Debug mode
             #pragma multi_compile _ DEBUG_COLOR
-            // Todo: HLSL bby
             #include "UnityCG.cginc"
 
             struct appdata
@@ -50,6 +49,8 @@
             int _DisplayIdx;
             // Stereo mode is only set via global shader property
             // Todo: Split each into pragma? This is a minor optimization
+            // Todo: No correct "merged"/single eye output for multi camera rig
+            // Todo: Anaglyph super borked
             int _StereoMode;
 
             v2f vert (appdata v)
@@ -69,6 +70,7 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 float2 uv;
+
                 // Adjust our u based on projector index
                 if (_StereoMode == 5 || _StereoMode == 3 || _StereoMode == 1) {
                     uv.x = (_Rotation / 360.0 + (i.uv.x + _DisplayIdx) / (_NProjectors * 4 / 3)) % 1;
@@ -119,7 +121,8 @@
                     float3 leftEye = tex2D(_MainTex, fixed2(uv.x, 0.5 + 0.5 * i.uv.y));
                     float3 rightEye = tex2D(_MainTex, fixed2(uv.x, 0.5 * i.uv.y));
                     anaglyphCol = fixed2(luminance(leftEye), luminance(rightEye));
-                }else{
+                }
+                else{
                     uv.y = i.uv.y;
                 }
 
@@ -133,7 +136,6 @@
                 fixed4 col = tex2D(_MainTex, uv);
                 if (_StereoMode == 3)
                     col = fixed4(anaglyphCol.x, anaglyphCol.y, 0, 0);
-
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
 

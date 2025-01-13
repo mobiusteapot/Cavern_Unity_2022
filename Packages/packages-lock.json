@@ -9,10 +9,11 @@
       }
     },
     "com.etc.kt.core": {
-      "version": "file:com.etc.kt.core@0.3.5-preview",
+      "version": "0.3.5-preview",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://upm.etc.cmu.edu"
     },
     "com.unity.collab-proxy": {
       "version": "2.0.7",

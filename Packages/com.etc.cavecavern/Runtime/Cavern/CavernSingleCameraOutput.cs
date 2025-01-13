@@ -45,11 +45,14 @@ namespace ETC.CaveCavern {
             outputMat.SetVector("_StretchRegion", INeedCavernSettings.GetStretchRect().GetRectAsVector4());
             Shader.SetGlobalInt("_StereoMode", (int)CavernRenderSettings.GetStereoMode());
         }
+        
         private void OnRenderImage(RenderTexture source, RenderTexture destination) {
             if (!hasRT) return;
             // Blits to null which forces output to the main screen
-            Graphics.Blit(outputRT, (RenderTexture)null, outputMat);
+            RenderTexture.active = null;
+            Graphics.Blit(outputRT, outputMat);
         }
+
         public void SetOutputRT(RenderTexture newRT) {
             if (newRT != null) {
                 outputRT = newRT;
@@ -60,7 +63,6 @@ namespace ETC.CaveCavern {
         }
         
         private void UpdateDebugColor() {
-            // Todo: Red/blue tint
             if (debugColorOutput) {
                 outputMat.EnableKeyword("DEBUG_COLOR");
             } else {

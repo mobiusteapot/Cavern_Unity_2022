@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 namespace ETC.CaveCavern {
-    public class CavernSingleCameraRig : CavernRigActivator {
-        protected override CavernRigType cavernRigType => CavernRigType.SingleCamera;
+    public class CavernSingleCameraRig : CavernRig {
+        public override CavernRigType CavernRigType => CavernRigType.SingleCamera;
+        // Todo: Move this initialization behaviour to the new CavernRigActivator
         [SerializeField] private CavernSingleCameraOutput cavernSingleCameraOutput;
         [SerializeField] private CavernMultiCameraOutput cavernMultiCameraOutput;
 
-        protected override void Start(){
+        protected void Awake(){
             if(!IsRigTypeEnabled()){
-                base.Start();
                 return;
             }
             var settings = CavernRenderSettings.Instance;
@@ -21,8 +20,5 @@ namespace ETC.CaveCavern {
                 cavernMultiCameraOutput.gameObject.SetActive(true);
             }
         }
-
-
     }
-
 }
